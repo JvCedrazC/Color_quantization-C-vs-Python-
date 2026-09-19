@@ -1,0 +1,20 @@
+color_quant.c: In function ‘node_new’:
+color_quant.c:170:44: warning: ‘calloc’ sizes specified with ‘sizeof’ in the earlier argument and not in the later argument [-Wcalloc-transposed-args]
+  170 |                 oct_node p = calloc(sizeof(oct_node_t), 2048);
+      |                                            ^~~~~~~~~~
+color_quant.c:170:44: note: earlier argument should specify number of elements, later size of each element
+color_quant.c: In function ‘nearest_color’:
+color_quant.c:249:39: warning: absolute value function ‘abs’ given an argument of type ‘int64_t’ {aka ‘long int’} but has parameter of type ‘int’ which may cause truncation of value [-Wabsolute-value]
+  249 |                         diff =    3 * abs(h->buf[i]->r - v[0])
+      |                                       ^~~
+color_quant.c:250:39: warning: absolute value function ‘abs’ given an argument of type ‘int64_t’ {aka ‘long int’} but has parameter of type ‘int’ which may cause truncation of value [-Wabsolute-value]
+  250 |                                 + 5 * abs(h->buf[i]->g - v[1])
+      |                                       ^~~
+color_quant.c:251:39: warning: absolute value function ‘abs’ given an argument of type ‘int64_t’ {aka ‘long int’} but has parameter of type ‘int’ which may cause truncation of value [-Wabsolute-value]
+  251 |                                 + 2 * abs(h->buf[i]->b - v[2]);
+      |                                       ^~~
+color_quant.c: In function ‘error_diffuse’:
+color_quant.c:262:34: warning: ‘calloc’ sizes specified with ‘sizeof’ in the earlier argument and not in the later argument [-Wcalloc-transposed-args]
+  262 |         int *npx = calloc(sizeof(int), im->h * im->w * 3), *px;
+      |                                  ^~~
+color_quant.c:262:34: note: earlier argument should specify number of elements, later size of each element

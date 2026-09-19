@@ -1,0 +1,5 @@
+Tempo de execução da quantização: 0.794377227 segundos
+Tempo de execução da quantização: 0.805868466 segundos
+Tempo de execução da quantização: 0.791727053 segundos
+Tempo de execução da quantização: 0.808010499 segundos
+Tempo de execução da quantização: 0.814284845 segundos

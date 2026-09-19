@@ -1,0 +1,1119 @@
+ Percent |	Source code & Disassembly of libc.so.6 for cpu_atom/cycles/P (1 samples, percent: local period)
+---------------------------------------------------------------------------------------------------------------
+         : 0     0x8ca20 <fopen@@GLIBC_2.2.5>:
+  100.00 :   8ca20:        endbr64
+    0.00 :   8ca24:        pushq   %rbp
+    0.00 :   8ca25:        movq    %rsp, %rbp
+    0.00 :   8ca28:        pushq   %r14
+    0.00 :   8ca2a:        movq    %rsi, %r14
+    0.00 :   8ca2d:        pushq   %r13
+    0.00 :   8ca2f:        movq    %rdi, %r13
+    0.00 :   8ca32:        movl    $0x1d8, %edi
+    0.00 :   8ca37:        pushq   %r12
+    0.00 :   8ca39:        pushq   %rbx
+    0.00 :   8ca3a:        callq   0x283e0
+    0.00 :   8ca3f:        testq   %rax, %rax
+    0.00 :   8ca42:        je      0x8cb10 <_IO_fopen+0xf0>
+    0.00 :   8ca48:        movq    %rax, %rbx
+    0.00 :   8ca4b:        leaq    0xe0(%rax), %rax
+    0.00 :   8ca52:        xorl    %edx, %edx
+    0.00 :   8ca54:        xorl    %esi, %esi
+    0.00 :   8ca56:        movq    %rax, 0x88(%rbx)
+    0.00 :   8ca5d:        leaq    0xf0(%rbx), %rcx
+    0.00 :   8ca64:        movq    %rbx, %rdi
+    0.00 :   8ca67:        movq    %rbx, %r12
+    0.00 :   8ca6a:        leaq    0x1847b7(%rip), %r8  # 0x211228 <_IO_wfile_jumps>
+    0.00 :   8ca71:        callq   0x9db90 <_IO_no_init>
+    0.00 :   8ca76:        leaq    0x1845b3(%rip), %rax  # 0x211030 <_IO_file_jumps>
+    0.00 :   8ca7d:        movq    %rbx, %rdi
+    0.00 :   8ca80:        movq    %rax, 0xd8(%rbx)
+    0.00 :   8ca87:        callq   0x98e00 <_IO_new_file_init_internal>
+    0.00 :   8ca8c:        movl    $0x1, %ecx
+    0.00 :   8ca91:        movq    %r14, %rdx
+    0.00 :   8ca94:        movq    %r13, %rsi
+    0.00 :   8ca97:        movq    %rbx, %rdi
+    0.00 :   8ca9a:        callq   0x992e0 <_IO_file_fopen>
+    0.00 :   8ca9f:        testq   %rax, %rax
+    0.00 :   8caa2:        je      0x8cb00 <_IO_fopen+0xe0>
+    0.00 :   8caa4:        testb   $0x1, 0x74(%rbx)
+    0.00 :   8caa8:        je      0x8cad8 <_IO_fopen+0xb8>
+    0.00 :   8caaa:        testb   $0x8, (%rbx)
+    0.00 :   8caad:        je      0x8cad8 <_IO_fopen+0xb8>
+    0.00 :   8caaf:        movl    0xc0(%rbx), %eax
+    0.00 :   8cab5:        testl   %eax, %eax
+    0.00 :   8cab7:        jle     0x8cae8 <_IO_fopen+0xc8>
+    0.00 :   8cab9:        leaq    0x1848b8(%rip), %rax  # 0x211378
+    0.00 :   8cac0:        movq    %rax, %rdx
+    0.00 :   8cac3:        movq    %rdx, 0xd8(%rbx)
+    0.00 :   8caca:        movq    0xa0(%rbx), %rdx
+    0.00 :   8cad1:        movq    %rax, 0xe0(%rdx)
+    0.00 :   8cad8:        popq    %rbx
+    0.00 :   8cad9:        movq    %r12, %rax
+    0.00 :   8cadc:        popq    %r12
+    0.00 :   8cade:        popq    %r13
+    0.00 :   8cae0:        popq    %r14
+    0.00 :   8cae2:        popq    %rbp
+    0.00 :   8cae3:        retq
+    0.00 :   8cae4:        nopl    (%rax)
+    0.00 :   8cae8:        leaq    0x184691(%rip), %rdx  # 0x211180
+    0.00 :   8caef:        leaq    0x1f8(%rdx), %rax
+    0.00 :   8caf6:        jmp     0x8cac3 <_IO_fopen+0xa3>
+    0.00 :   8caf8:        nopl    (%rax,%rax)
+    0.00 :   8cb00:        movq    %rbx, %rdi
+    0.00 :   8cb03:        callq   0x9c760 <_IO_un_link>
+    0.00 :   8cb08:        movq    %rbx, %rdi
+    0.00 :   8cb0b:        callq   0x283d0
+    0.00 :   8cb10:        xorl    %r12d, %r12d
+    0.00 :   8cb13:        jmp     0x8cad8 <_IO_fopen+0xb8>
+ Percent |	Source code & Disassembly of color_quant for cpu_core/cycles/P (1528 samples, percent: local period)
+--------------------------------------------------------------------------------------------------------------------
+         : 0    0x1bc1 <node_insert>:
+    0.00 :   1bc1:        endbr64
+    0.00 :   1bc5:        pushq   %rbp
+    0.00 :   1bc6:        movq    %rsp, %rbp
+    1.12 :   1bc9:        pushq   %rbx
+    0.00 :   1bca:        subq    $0x28, %rsp
+    0.00 :   1bce:        movq    %rdi, -0x28(%rbp)
+    0.00 :   1bd2:        movq    %rsi, -0x30(%rbp)
+    0.92 :   1bd6:        movb    $0x0, -0x12(%rbp)
+    0.00 :   1bda:        movb    $-0x80, -0x13(%rbp)
+    0.80 :   1bde:        jmp     0x1c92 <node_insert+0xd1>
+    0.00 :   1be3:        movq    -0x30(%rbp), %rax
+    0.00 :   1be7:        addq    $0x1, %rax
+    0.13 :   1beb:        movzbl  (%rax), %eax
+    6.96 :   1bee:        andb    -0x13(%rbp), %al
+    0.00 :   1bf1:        testb   %al, %al
+    4.45 :   1bf3:        je      0x1bfc <node_insert+0x3b>
+    0.07 :   1bf5:        movl    $0x4, %edx
+    2.04 :   1bfa:        jmp     0x1c01 <node_insert+0x40>
+    0.00 :   1bfc:        movl    $0x0, %edx
+    0.00 :   1c01:        movq    -0x30(%rbp), %rax
+    0.07 :   1c05:        movzbl  (%rax), %eax
+    4.66 :   1c08:        andb    -0x13(%rbp), %al
+    2.04 :   1c0b:        testb   %al, %al
+    4.74 :   1c0d:        je      0x1c16 <node_insert+0x55>
+    0.00 :   1c0f:        movl    $0x2, %eax
+    2.50 :   1c14:        jmp     0x1c1b <node_insert+0x5a>
+    0.00 :   1c16:        movl    $0x0, %eax
+    0.00 :   1c1b:        addl    %eax, %edx
+    0.07 :   1c1d:        movq    -0x30(%rbp), %rax
+    3.91 :   1c21:        addq    $0x2, %rax
+    2.23 :   1c25:        movzbl  (%rax), %eax
+    0.00 :   1c28:        andb    -0x13(%rbp), %al
+    0.00 :   1c2b:        testb   %al, %al
+    4.61 :   1c2d:        setne   %al
+    3.49 :   1c30:        addl    %edx, %eax
+    0.20 :   1c32:        movb    %al, -0x11(%rbp)
+    0.13 :   1c35:        movzbl  -0x11(%rbp), %edx
+    5.30 :   1c39:        movq    -0x28(%rbp), %rax
+    2.96 :   1c3d:        movslq  %edx, %rdx
+    0.04 :   1c40:        addq    $0x4, %rdx
+    0.91 :   1c44:        movq    0x8(%rax,%rdx,8), %rax
+    0.00 :   1c49:        testq   %rax, %rax
+    5.91 :   1c4c:        jne     0x1c77 <node_insert+0xb6>
+    0.00 :   1c4e:        movzbl  -0x12(%rbp), %ecx
+    0.00 :   1c52:        movzbl  -0x11(%rbp), %eax
+    0.00 :   1c56:        movzbl  -0x11(%rbp), %ebx
+    0.00 :   1c5a:        movq    -0x28(%rbp), %rdx
+    0.00 :   1c5e:        movl    %ecx, %esi
+    0.00 :   1c60:        movl    %eax, %edi
+    0.00 :   1c62:        callq   0x1ab8 <node_new>
+    0.00 :   1c67:        movq    -0x28(%rbp), %rdx
+    0.00 :   1c6b:        movslq  %ebx, %rcx
+    0.00 :   1c6e:        addq    $0x4, %rcx
+    0.00 :   1c72:        movq    %rax, 0x8(%rdx,%rcx,8)
+    0.00 :   1c77:        movzbl  -0x11(%rbp), %edx
+    0.07 :   1c7b:        movq    -0x28(%rbp), %rax
+    0.00 :   1c7f:        movslq  %edx, %rdx
+    6.56 :   1c82:        addq    $0x4, %rdx
+    0.07 :   1c86:        movq    0x8(%rax,%rdx,8), %rax
+    0.20 :   1c8b:        movq    %rax, -0x28(%rbp)
+    7.99 :   1c8f:        shrb    -0x13(%rbp)
+    0.46 :   1c92:        addb    $0x1, -0x12(%rbp)
+    6.77 :   1c96:        cmpb    $0x7, -0x12(%rbp)
+    8.34 :   1c9a:        jbe     0x1be3 <node_insert+0x22>
+    0.13 :   1ca0:        movq    -0x28(%rbp), %rax
+    0.39 :   1ca4:        movq    (%rax), %rdx
+    0.86 :   1ca7:        movq    -0x30(%rbp), %rax
+    0.00 :   1cab:        movzbl  (%rax), %eax
+    0.00 :   1cae:        movzbl  %al, %eax
+    0.26 :   1cb1:        addq    %rax, %rdx
+    0.72 :   1cb4:        movq    -0x28(%rbp), %rax
+    0.19 :   1cb8:        movq    %rdx, (%rax)
+    0.00 :   1cbb:        movq    -0x28(%rbp), %rax
+    0.00 :   1cbf:        movq    0x8(%rax), %rdx
+    0.92 :   1cc3:        movq    -0x30(%rbp), %rax
+    0.20 :   1cc7:        addq    $0x1, %rax
+    0.00 :   1ccb:        movzbl  (%rax), %eax
+    0.00 :   1cce:        movzbl  %al, %eax
+    0.59 :   1cd1:        addq    %rax, %rdx
+    0.19 :   1cd4:        movq    -0x28(%rbp), %rax
+    0.00 :   1cd8:        movq    %rdx, 0x8(%rax)
+    0.00 :   1cdc:        movq    -0x28(%rbp), %rax
+    1.05 :   1ce0:        movq    0x10(%rax), %rdx
+    0.13 :   1ce4:        movq    -0x30(%rbp), %rax
+    0.00 :   1ce8:        addq    $0x2, %rax
+    0.00 :   1cec:        movzbl  (%rax), %eax
+    0.85 :   1cef:        movzbl  %al, %eax
+    0.00 :   1cf2:        addq    %rax, %rdx
+    0.00 :   1cf5:        movq    -0x28(%rbp), %rax
+    0.00 :   1cf9:        movq    %rdx, 0x10(%rax)
+    0.53 :   1cfd:        movq    -0x28(%rbp), %rax
+    0.20 :   1d01:        movl    0x18(%rax), %eax
+    0.00 :   1d04:        leal    0x1(%rax), %edx
+    0.00 :   1d07:        movq    -0x28(%rbp), %rax
+    0.39 :   1d0b:        movl    %edx, 0x18(%rax)
+    0.00 :   1d0e:        movq    -0x28(%rbp), %rax
+    0.00 :   1d12:        movq    -0x8(%rbp), %rbx
+    0.86 :   1d16:        leave
+    0.86 :   1d17:        retq
+ Percent |	Source code & Disassembly of color_quant for cpu_core/cycles/P (439 samples, percent: local period)
+-------------------------------------------------------------------------------------------------------------------
+         : 0    0x1629 <cmp_node>:
+    0.00 :   1629:        endbr64
+    0.00 :   162d:        pushq   %rbp
+    0.00 :   162e:        movq    %rsp, %rbp
+    5.70 :   1631:        movq    %rdi, -0x18(%rbp)
+    0.00 :   1635:        movq    %rsi, -0x20(%rbp)
+    0.00 :   1639:        movq    -0x18(%rbp), %rax
+    1.59 :   163d:        movzbl  0x20(%rax), %edx
+    5.47 :   1641:        movq    -0x20(%rbp), %rax
+    2.96 :   1645:        movzbl  0x20(%rax), %eax
+    0.00 :   1649:        cmpb    %al, %dl
+    6.38 :   164b:        jae     0x1654 <cmp_node+0x2b>
+    0.00 :   164d:        movl    $0xffffffff, %eax
+    0.00 :   1652:        jmp     0x16c0 <cmp_node+0x97>
+    0.00 :   1654:        movq    -0x18(%rbp), %rax
+    0.00 :   1658:        movzbl  0x20(%rax), %edx
+    0.00 :   165c:        movq    -0x20(%rbp), %rax
+    8.44 :   1660:        movzbl  0x20(%rax), %eax
+    0.00 :   1664:        cmpb    %dl, %al
+    6.84 :   1666:        jae     0x166f <cmp_node+0x46>
+    0.00 :   1668:        movl    $0x1, %eax
+    0.00 :   166d:        jmp     0x16c0 <cmp_node+0x97>
+    0.00 :   166f:        movq    -0x18(%rbp), %rax
+    0.23 :   1673:        movl    0x18(%rax), %edx
+    0.00 :   1676:        movq    -0x18(%rbp), %rax
+    8.41 :   167a:        movzbl  0x23(%rax), %eax
+    0.00 :   167e:        movzbl  %al, %eax
+    0.00 :   1681:        movl    %eax, %ecx
+    7.98 :   1683:        sarl    %cl, %edx
+    0.00 :   1685:        movl    %edx, %eax
+    0.00 :   1687:        movl    %eax, -0x8(%rbp)
+    0.00 :   168a:        movq    -0x20(%rbp), %rax
+    6.16 :   168e:        movl    0x18(%rax), %edx
+    0.00 :   1691:        movq    -0x20(%rbp), %rax
+    0.00 :   1695:        movzbl  0x23(%rax), %eax
+    0.00 :   1699:        movzbl  %al, %eax
+    6.15 :   169c:        movl    %eax, %ecx
+    0.23 :   169e:        sarl    %cl, %edx
+    0.00 :   16a0:        movl    %edx, %eax
+    9.57 :   16a2:        movl    %eax, -0x4(%rbp)
+    0.00 :   16a5:        movl    -0x8(%rbp), %eax
+    1.53 :   16a8:        cmpl    -0x4(%rbp), %eax
+    0.68 :   16ab:        jl      0x16bb <cmp_node+0x92>
+    0.00 :   16ad:        movl    -0x8(%rbp), %eax
+    5.70 :   16b0:        cmpl    -0x4(%rbp), %eax
+    0.68 :   16b3:        setg    %al
+    0.46 :   16b6:        movzbl  %al, %eax
+    7.53 :   16b9:        jmp     0x16c0 <cmp_node+0x97>
+    0.23 :   16bb:        movl    $0xffffffff, %eax
+    0.00 :   16c0:        popq    %rbp
+    7.07 :   16c1:        retq
+ Percent |	Source code & Disassembly of color_quant for cpu_core/cycles/P (398 samples, percent: local period)
+-------------------------------------------------------------------------------------------------------------------
+         : 0    0x1de1 <color_replace>:
+    0.00 :   1de1:        endbr64
+    0.00 :   1de5:        pushq   %rbp
+    0.00 :   1de6:        movq    %rsp, %rbp
+    2.01 :   1de9:        movq    %rdi, -0x18(%rbp)
+    0.00 :   1ded:        movq    %rsi, -0x20(%rbp)
+    0.00 :   1df1:        movb    $-0x80, -0x2(%rbp)
+    2.76 :   1df5:        jmp     0x1e80 <color_replace+0x9f>
+    0.00 :   1dfa:        movq    -0x20(%rbp), %rax
+    0.00 :   1dfe:        addq    $0x1, %rax
+    0.50 :   1e02:        movzbl  (%rax), %eax
+    7.54 :   1e05:        andb    -0x2(%rbp), %al
+    0.00 :   1e08:        testb   %al, %al
+    3.02 :   1e0a:        je      0x1e13 <color_replace+0x32>
+    0.00 :   1e0c:        movl    $0x4, %edx
+    3.27 :   1e11:        jmp     0x1e18 <color_replace+0x37>
+    0.00 :   1e13:        movl    $0x0, %edx
+    0.00 :   1e18:        movq    -0x20(%rbp), %rax
+    0.00 :   1e1c:        movzbl  (%rax), %eax
+    4.02 :   1e1f:        andb    -0x2(%rbp), %al
+    1.76 :   1e22:        testb   %al, %al
+    3.52 :   1e24:        je      0x1e2d <color_replace+0x4c>
+    0.00 :   1e26:        movl    $0x2, %eax
+    2.01 :   1e2b:        jmp     0x1e32 <color_replace+0x51>
+    0.00 :   1e2d:        movl    $0x0, %eax
+    0.00 :   1e32:        addl    %eax, %edx
+    0.00 :   1e34:        movq    -0x20(%rbp), %rax
+    5.28 :   1e38:        addq    $0x2, %rax
+    6.28 :   1e3c:        movzbl  (%rax), %eax
+    0.00 :   1e3f:        andb    -0x2(%rbp), %al
+    0.00 :   1e42:        testb   %al, %al
+    5.78 :   1e44:        setne   %al
+    5.03 :   1e47:        addl    %edx, %eax
+    0.00 :   1e49:        movb    %al, -0x1(%rbp)
+    0.25 :   1e4c:        movzbl  -0x1(%rbp), %edx
+    5.28 :   1e50:        movq    -0x18(%rbp), %rax
+    4.02 :   1e54:        movslq  %edx, %rdx
+    0.00 :   1e57:        addq    $0x4, %rdx
+    0.25 :   1e5b:        movq    0x8(%rax,%rdx,8), %rax
+    1.51 :   1e60:        testq   %rax, %rax
+    4.27 :   1e63:        je      0x1e8c <color_replace+0xab>
+    2.26 :   1e65:        movzbl  -0x1(%rbp), %edx
+    0.00 :   1e69:        movq    -0x18(%rbp), %rax
+    0.00 :   1e6d:        movslq  %edx, %rdx
+    1.51 :   1e70:        addq    $0x4, %rdx
+    1.76 :   1e74:        movq    0x8(%rax,%rdx,8), %rax
+    0.00 :   1e79:        movq    %rax, -0x18(%rbp)
+    3.52 :   1e7d:        shrb    -0x2(%rbp)
+    0.00 :   1e80:        cmpb    $0x0, -0x2(%rbp)
+    6.03 :   1e84:        jne     0x1dfa <color_replace+0x19>
+    0.00 :   1e8a:        jmp     0x1e8d <color_replace+0xac>
+    0.00 :   1e8c:        nop
+    0.00 :   1e8d:        movq    -0x18(%rbp), %rax
+    0.00 :   1e91:        movq    (%rax), %rax
+    4.77 :   1e94:        movl    %eax, %edx
+    0.00 :   1e96:        movq    -0x20(%rbp), %rax
+    0.00 :   1e9a:        movb    %dl, (%rax)
+    0.00 :   1e9c:        movq    -0x18(%rbp), %rax
+    3.77 :   1ea0:        movq    0x8(%rax), %rdx
+    0.00 :   1ea4:        movq    -0x20(%rbp), %rax
+    0.00 :   1ea8:        addq    $0x1, %rax
+    0.00 :   1eac:        movb    %dl, (%rax)
+    2.01 :   1eae:        movq    -0x18(%rbp), %rax
+    0.00 :   1eb2:        movq    0x10(%rax), %rdx
+    0.00 :   1eb6:        movq    -0x20(%rbp), %rax
+    0.00 :   1eba:        addq    $0x2, %rax
+    3.77 :   1ebe:        movb    %dl, (%rax)
+    0.00 :   1ec0:        nop
+    0.00 :   1ec1:        popq    %rbp
+    2.26 :   1ec2:        retq
+ Percent |	Source code & Disassembly of color_quant for cpu_core/cycles/P (262 samples, percent: local period)
+-------------------------------------------------------------------------------------------------------------------
+         : 0    0x1802 <up_heap>:
+    0.00 :   1802:        endbr64
+    0.00 :   1806:        pushq   %rbp
+    0.00 :   1807:        movq    %rsp, %rbp
+    3.04 :   180a:        subq    $0x20, %rsp
+    0.00 :   180e:        movq    %rdi, -0x18(%rbp)
+    0.00 :   1812:        movq    %rsi, -0x20(%rbp)
+    0.00 :   1816:        movq    -0x20(%rbp), %rax
+    4.21 :   181a:        movl    0x1c(%rax), %eax
+    0.00 :   181d:        movl    %eax, -0xc(%rbp)
+    7.27 :   1820:        jmp     0x1892 <up_heap+0x90>
+    0.00 :   1822:        movq    -0x18(%rbp), %rax
+    0.00 :   1826:        movq    0x8(%rax), %rdx
+    0.00 :   182a:        movl    -0xc(%rbp), %eax
+    6.12 :   182d:        movl    %eax, %ecx
+    0.00 :   182f:        shrl    $0x1f, %ecx
+    0.00 :   1832:        addl    %ecx, %eax
+    0.00 :   1834:        sarl    %eax
+    4.93 :   1836:        cltq
+    0.38 :   1838:        shlq    $0x3, %rax
+    0.00 :   183c:        addq    %rdx, %rax
+    2.68 :   183f:        movq    (%rax), %rax
+    9.52 :   1842:        movq    %rax, -0x8(%rbp)
+    1.15 :   1846:        movq    -0x8(%rbp), %rdx
+    0.00 :   184a:        movq    -0x20(%rbp), %rax
+    0.00 :   184e:        movq    %rdx, %rsi
+    4.59 :   1851:        movq    %rax, %rdi
+    8.79 :   1854:        callq   0x1629 <cmp_node>
+    0.00 :   1859:        testl   %eax, %eax
+    7.65 :   185b:        jns     0x189a <up_heap+0x98>
+    0.00 :   185d:        movq    -0x18(%rbp), %rax
+    0.00 :   1861:        movq    0x8(%rax), %rax
+    0.00 :   1865:        movl    -0xc(%rbp), %edx
+    0.00 :   1868:        movslq  %edx, %rdx
+    0.00 :   186b:        shlq    $0x3, %rdx
+    0.00 :   186f:        addq    %rax, %rdx
+    0.00 :   1872:        movq    -0x8(%rbp), %rax
+    0.00 :   1876:        movq    %rax, (%rdx)
+    0.00 :   1879:        movq    -0x8(%rbp), %rax
+    0.00 :   187d:        movl    -0xc(%rbp), %edx
+    0.00 :   1880:        movl    %edx, 0x1c(%rax)
+    0.00 :   1883:        movl    -0xc(%rbp), %eax
+    0.00 :   1886:        movl    %eax, %edx
+    0.00 :   1888:        shrl    $0x1f, %edx
+    0.00 :   188b:        addl    %edx, %eax
+    0.00 :   188d:        sarl    %eax
+    0.00 :   188f:        movl    %eax, -0xc(%rbp)
+    0.00 :   1892:        cmpl    $0x1, -0xc(%rbp)
+    8.39 :   1896:        jg      0x1822 <up_heap+0x20>
+    0.00 :   1898:        jmp     0x189b <up_heap+0x99>
+    0.00 :   189a:        nop
+    0.00 :   189b:        movq    -0x18(%rbp), %rax
+    0.00 :   189f:        movq    0x8(%rax), %rax
+    4.97 :   18a3:        movl    -0xc(%rbp), %edx
+    0.00 :   18a6:        movslq  %edx, %rdx
+    0.00 :   18a9:        shlq    $0x3, %rdx
+    0.00 :   18ad:        addq    %rax, %rdx
+    8.41 :   18b0:        movq    -0x20(%rbp), %rax
+    0.00 :   18b4:        movq    %rax, (%rdx)
+    0.00 :   18b7:        movq    -0x20(%rbp), %rax
+    0.00 :   18bb:        movl    -0xc(%rbp), %edx
+    5.72 :   18be:        movl    %edx, 0x1c(%rax)
+    0.00 :   18c1:        nop
+    4.21 :   18c2:        leave
+    8.00 :   18c3:        retq
+ Percent |	Source code & Disassembly of color_quant for cpu_core/cycles/P (253 samples, percent: local period)
+-------------------------------------------------------------------------------------------------------------------
+         : 0    0x16c2 <down_heap>:
+    0.00 :   16c2:        endbr64
+    0.00 :   16c6:        pushq   %rbp
+    0.00 :   16c7:        movq    %rsp, %rbp
+    6.34 :   16ca:        subq    $0x20, %rsp
+    0.00 :   16ce:        movq    %rdi, -0x18(%rbp)
+    0.00 :   16d2:        movq    %rsi, -0x20(%rbp)
+    0.00 :   16d6:        movq    -0x20(%rbp), %rax
+    6.74 :   16da:        movl    0x1c(%rax), %eax
+    0.00 :   16dd:        movl    %eax, -0x8(%rbp)
+    0.00 :   16e0:        movl    -0x8(%rbp), %eax
+    0.00 :   16e3:        addl    %eax, %eax
+    7.53 :   16e5:        movl    %eax, -0x4(%rbp)
+    0.00 :   16e8:        movq    -0x18(%rbp), %rax
+    0.00 :   16ec:        movl    0x4(%rax), %eax
+    1.19 :   16ef:        cmpl    %eax, -0x4(%rbp)
+    5.15 :   16f2:        jge     0x17d5 <down_heap+0x113>
+    4.36 :   16f8:        movl    -0x4(%rbp), %eax
+    0.00 :   16fb:        leal    0x1(%rax), %edx
+    0.00 :   16fe:        movq    -0x18(%rbp), %rax
+    0.40 :   1702:        movl    0x4(%rax), %eax
+    2.38 :   1705:        cmpl    %eax, %edx
+    0.00 :   1707:        jge     0x1750 <down_heap+0x8e>
+    0.00 :   1709:        movq    -0x18(%rbp), %rax
+    0.00 :   170d:        movq    0x8(%rax), %rax
+    2.38 :   1711:        movl    -0x4(%rbp), %edx
+    1.19 :   1714:        movslq  %edx, %rdx
+    0.00 :   1717:        addq    $0x1, %rdx
+    0.00 :   171b:        shlq    $0x3, %rdx
+    0.00 :   171f:        addq    %rdx, %rax
+    6.34 :   1722:        movq    (%rax), %rdx
+    0.00 :   1725:        movq    -0x18(%rbp), %rax
+    0.00 :   1729:        movq    0x8(%rax), %rax
+    0.00 :   172d:        movl    -0x4(%rbp), %ecx
+    2.15 :   1730:        movslq  %ecx, %rcx
+    0.00 :   1733:        shlq    $0x3, %rcx
+    0.00 :   1737:        addq    %rcx, %rax
+    0.40 :   173a:        movq    (%rax), %rax
+    2.78 :   173d:        movq    %rdx, %rsi
+    0.00 :   1740:        movq    %rax, %rdi
+    1.19 :   1743:        callq   0x1629 <cmp_node>
+    0.00 :   1748:        testl   %eax, %eax
+    2.77 :   174a:        jle     0x1750 <down_heap+0x8e>
+    0.00 :   174c:        addl    $0x1, -0x4(%rbp)
+    1.19 :   1750:        movq    -0x18(%rbp), %rax
+    0.00 :   1754:        movq    0x8(%rax), %rax
+    0.00 :   1758:        movl    -0x4(%rbp), %edx
+    4.74 :   175b:        movslq  %edx, %rdx
+    1.19 :   175e:        shlq    $0x3, %rdx
+    0.00 :   1762:        addq    %rdx, %rax
+    0.40 :   1765:        movq    (%rax), %rdx
+    1.19 :   1768:        movq    -0x20(%rbp), %rax
+    0.00 :   176c:        movq    %rdx, %rsi
+    0.00 :   176f:        movq    %rax, %rdi
+    4.36 :   1772:        callq   0x1629 <cmp_node>
+    0.00 :   1777:        testl   %eax, %eax
+    3.96 :   1779:        jle     0x17d8 <down_heap+0x116>
+    0.00 :   177b:        movq    -0x18(%rbp), %rax
+    0.00 :   177f:        movq    0x8(%rax), %rax
+    0.00 :   1783:        movl    -0x4(%rbp), %edx
+    0.00 :   1786:        movslq  %edx, %rdx
+    0.00 :   1789:        shlq    $0x3, %rdx
+    0.00 :   178d:        leaq    (%rax,%rdx), %rcx
+    0.00 :   1791:        movq    -0x18(%rbp), %rax
+    0.00 :   1795:        movq    0x8(%rax), %rax
+    0.00 :   1799:        movl    -0x8(%rbp), %edx
+    0.00 :   179c:        movslq  %edx, %rdx
+    0.00 :   179f:        shlq    $0x3, %rdx
+    0.00 :   17a3:        addq    %rax, %rdx
+    0.00 :   17a6:        movq    (%rcx), %rax
+    0.00 :   17a9:        movq    %rax, (%rdx)
+    0.00 :   17ac:        movq    -0x18(%rbp), %rax
+    0.00 :   17b0:        movq    0x8(%rax), %rax
+    0.00 :   17b4:        movl    -0x8(%rbp), %edx
+    0.00 :   17b7:        movslq  %edx, %rdx
+    0.00 :   17ba:        shlq    $0x3, %rdx
+    0.00 :   17be:        addq    %rdx, %rax
+    0.00 :   17c1:        movq    (%rax), %rax
+    0.00 :   17c4:        movl    -0x8(%rbp), %edx
+    0.00 :   17c7:        movl    %edx, 0x1c(%rax)
+    0.00 :   17ca:        movl    -0x4(%rbp), %eax
+    0.00 :   17cd:        movl    %eax, -0x8(%rbp)
+    0.00 :   17d0:        jmp     0x16e0 <down_heap+0x1e>
+    0.00 :   17d5:        nop
+    3.17 :   17d6:        jmp     0x17d9 <down_heap+0x117>
+    0.00 :   17d8:        nop
+    0.00 :   17d9:        movq    -0x18(%rbp), %rax
+    0.00 :   17dd:        movq    0x8(%rax), %rax
+    2.78 :   17e1:        movl    -0x8(%rbp), %edx
+    2.78 :   17e4:        movslq  %edx, %rdx
+    0.00 :   17e7:        shlq    $0x3, %rdx
+    0.00 :   17eb:        addq    %rax, %rdx
+    1.98 :   17ee:        movq    -0x20(%rbp), %rax
+    3.96 :   17f2:        movq    %rax, (%rdx)
+    0.00 :   17f5:        movq    -0x20(%rbp), %rax
+    0.00 :   17f9:        movl    -0x8(%rbp), %edx
+    3.17 :   17fc:        movl    %edx, 0x1c(%rax)
+    1.19 :   17ff:        nop
+    5.93 :   1800:        leave
+    4.75 :   1801:        retq
+ Percent |	Source code & Disassembly of color_quant for cpu_core/cycles/P (176 samples, percent: local period)
+-------------------------------------------------------------------------------------------------------------------
+         : 0    0x2880 <color_quant>:
+    0.00 :   2880:        endbr64
+    0.00 :   2884:        pushq   %rbp
+    0.00 :   2885:        movq    %rsp, %rbp
+    0.00 :   2888:        subq    $0x60, %rsp
+    0.00 :   288c:        movq    %rdi, -0x58(%rbp)
+    0.00 :   2890:        movl    %esi, -0x5c(%rbp)
+    0.00 :   2893:        movl    %edx, -0x60(%rbp)
+    0.00 :   2896:        movq    %fs:0x28, %rax
+    0.00 :   289f:        movq    %rax, -0x8(%rbp)
+    0.00 :   28a3:        xorl    %eax, %eax
+    0.00 :   28a5:        movq    -0x58(%rbp), %rax
+    0.00 :   28a9:        movq    0x8(%rax), %rax
+    0.00 :   28ad:        movq    %rax, -0x40(%rbp)
+    0.00 :   28b1:        movl    $0x0, -0x20(%rbp)
+    0.00 :   28b8:        movl    $0x0, -0x1c(%rbp)
+    0.00 :   28bf:        movq    $0x0, -0x18(%rbp)
+    0.00 :   28c7:        movl    $0x0, %edx
+    0.00 :   28cc:        movl    $0x0, %esi
+    0.00 :   28d1:        movl    $0x0, %edi
+    0.00 :   28d6:        callq   0x1ab8 <node_new>
+    0.00 :   28db:        movq    %rax, -0x38(%rbp)
+    0.00 :   28df:        movl    $0x0, -0x44(%rbp)
+    0.00 :   28e6:        jmp     0x2916 <color_quant+0x96>
+    0.00 :   28e8:        movq    -0x40(%rbp), %rdx
+    0.00 :   28ec:        movq    -0x38(%rbp), %rax
+    0.00 :   28f0:        movq    %rdx, %rsi
+    8.50 :   28f3:        movq    %rax, %rdi
+    7.37 :   28f6:        callq   0x1bc1 <node_insert>
+    0.00 :   28fb:        movq    %rax, %rdx
+    0.00 :   28fe:        leaq    -0x20(%rbp), %rax
+    0.00 :   2902:        movq    %rdx, %rsi
+    7.39 :   2905:        movq    %rax, %rdi
+    4.54 :   2908:        callq   0x18c4 <heap_add>
+    0.00 :   290d:        addl    $0x1, -0x44(%rbp)
+    9.66 :   2911:        addq    $0x3, -0x40(%rbp)
+    0.00 :   2916:        movq    -0x58(%rbp), %rax
+    0.00 :   291a:        movl    (%rax), %edx
+    0.00 :   291c:        movq    -0x58(%rbp), %rax
+    9.67 :   2920:        movl    0x4(%rax), %eax
+    0.57 :   2923:        imull   %edx, %eax
+    0.00 :   2926:        cmpl    %eax, -0x44(%rbp)
+   14.78 :   2929:        jl      0x28e8 <color_quant+0x68>
+    0.00 :   292b:        jmp     0x2953 <color_quant+0xd3>
+    0.00 :   292d:        leaq    -0x20(%rbp), %rax
+    0.00 :   2931:        movq    %rax, %rdi
+    0.00 :   2934:        callq   0x19ed <pop_heap>
+    0.00 :   2939:        movq    %rax, %rdi
+    0.00 :   293c:        callq   0x1d18 <node_fold>
+    0.00 :   2941:        movq    %rax, %rdx
+    0.00 :   2944:        leaq    -0x20(%rbp), %rax
+    0.00 :   2948:        movq    %rdx, %rsi
+    0.00 :   294b:        movq    %rax, %rdi
+    0.00 :   294e:        callq   0x18c4 <heap_add>
+    0.00 :   2953:        movl    -0x1c(%rbp), %edx
+    0.00 :   2956:        movl    -0x5c(%rbp), %eax
+    0.00 :   2959:        addl    $0x1, %eax
+    0.00 :   295c:        cmpl    %eax, %edx
+    0.00 :   295e:        jg      0x292d <color_quant+0xad>
+    0.00 :   2960:        movl    $0x1, -0x44(%rbp)
+    0.00 :   2967:        jmp     0x2a33 <color_quant+0x1b3>
+    0.00 :   296c:        movq    -0x18(%rbp), %rax
+    0.00 :   2970:        movl    -0x44(%rbp), %edx
+    0.00 :   2973:        movslq  %edx, %rdx
+    0.00 :   2976:        shlq    $0x3, %rdx
+    0.00 :   297a:        addq    %rdx, %rax
+    0.00 :   297d:        movq    (%rax), %rax
+    0.00 :   2980:        movq    %rax, -0x30(%rbp)
+    0.00 :   2984:        movq    -0x30(%rbp), %rax
+    0.00 :   2988:        movl    0x18(%rax), %eax
+    0.00 :   298b:        pxor    %xmm0, %xmm0
+    0.00 :   298f:        cvtsi2sd        %eax, %xmm0
+    0.00 :   2993:        movsd   %xmm0, -0x28(%rbp)
+    0.00 :   2998:        movq    -0x30(%rbp), %rax
+    0.00 :   299c:        movq    (%rax), %rax
+    0.00 :   299f:        pxor    %xmm0, %xmm0
+    0.00 :   29a3:        cvtsi2sd        %rax, %xmm0
+    0.00 :   29a8:        movapd  %xmm0, %xmm1
+    0.00 :   29ac:        divsd   -0x28(%rbp), %xmm1
+    0.00 :   29b1:        movsd   0x6d7(%rip), %xmm0  # 0x3090
+    0.00 :   29b9:        addsd   %xmm1, %xmm0
+    0.00 :   29bd:        cvttsd2si       %xmm0, %rdx
+    0.00 :   29c2:        movq    -0x30(%rbp), %rax
+    0.00 :   29c6:        movq    %rdx, (%rax)
+    0.00 :   29c9:        movq    -0x30(%rbp), %rax
+    0.00 :   29cd:        movq    0x8(%rax), %rax
+    0.00 :   29d1:        pxor    %xmm0, %xmm0
+    0.00 :   29d5:        cvtsi2sd        %rax, %xmm0
+    0.00 :   29da:        movapd  %xmm0, %xmm1
+    0.00 :   29de:        divsd   -0x28(%rbp), %xmm1
+    0.00 :   29e3:        movsd   0x6a5(%rip), %xmm0  # 0x3090
+    0.00 :   29eb:        addsd   %xmm1, %xmm0
+    0.00 :   29ef:        cvttsd2si       %xmm0, %rdx
+    0.00 :   29f4:        movq    -0x30(%rbp), %rax
+    0.00 :   29f8:        movq    %rdx, 0x8(%rax)
+    0.00 :   29fc:        movq    -0x30(%rbp), %rax
+    0.00 :   2a00:        movq    0x10(%rax), %rax
+    0.00 :   2a04:        pxor    %xmm0, %xmm0
+    0.00 :   2a08:        cvtsi2sd        %rax, %xmm0
+    0.00 :   2a0d:        movapd  %xmm0, %xmm1
+    0.00 :   2a11:        divsd   -0x28(%rbp), %xmm1
+    0.00 :   2a16:        movsd   0x672(%rip), %xmm0  # 0x3090
+    0.00 :   2a1e:        addsd   %xmm1, %xmm0
+    0.00 :   2a22:        cvttsd2si       %xmm0, %rdx
+    0.00 :   2a27:        movq    -0x30(%rbp), %rax
+    0.00 :   2a2b:        movq    %rdx, 0x10(%rax)
+    0.00 :   2a2f:        addl    $0x1, -0x44(%rbp)
+    0.00 :   2a33:        movl    -0x1c(%rbp), %eax
+    0.00 :   2a36:        cmpl    %eax, -0x44(%rbp)
+    0.00 :   2a39:        jl      0x296c <color_quant+0xec>
+    0.00 :   2a3f:        cmpl    $0x0, -0x60(%rbp)
+    0.00 :   2a43:        je      0x2a5a <color_quant+0x1da>
+    0.00 :   2a45:        leaq    -0x20(%rbp), %rdx
+    0.00 :   2a49:        movq    -0x58(%rbp), %rax
+    0.00 :   2a4d:        movq    %rdx, %rsi
+    0.00 :   2a50:        movq    %rax, %rdi
+    0.00 :   2a53:        callq   0x1fdd <error_diffuse>
+    0.00 :   2a58:        jmp     0x2aa0 <color_quant+0x220>
+    0.00 :   2a5a:        movl    $0x0, -0x44(%rbp)
+    0.00 :   2a61:        movq    -0x58(%rbp), %rax
+    0.00 :   2a65:        movq    0x8(%rax), %rax
+    0.00 :   2a69:        movq    %rax, -0x40(%rbp)
+    0.00 :   2a6d:        jmp     0x2a8b <color_quant+0x20b>
+    0.00 :   2a6f:        movq    -0x40(%rbp), %rdx
+    0.00 :   2a73:        movq    -0x38(%rbp), %rax
+    0.00 :   2a77:        movq    %rdx, %rsi
+    6.82 :   2a7a:        movq    %rax, %rdi
+    7.96 :   2a7d:        callq   0x1de1 <color_replace>
+    0.00 :   2a82:        addl    $0x1, -0x44(%rbp)
+    3.98 :   2a86:        addq    $0x3, -0x40(%rbp)
+    0.00 :   2a8b:        movq    -0x58(%rbp), %rax
+    0.00 :   2a8f:        movl    (%rax), %edx
+    0.00 :   2a91:        movq    -0x58(%rbp), %rax
+    7.96 :   2a95:        movl    0x4(%rax), %eax
+    0.57 :   2a98:        imull   %edx, %eax
+    0.00 :   2a9b:        cmpl    %eax, -0x44(%rbp)
+   10.23 :   2a9e:        jl      0x2a6f <color_quant+0x1ef>
+    0.00 :   2aa0:        callq   0x1b7a <node_free>
+    0.00 :   2aa5:        movq    -0x18(%rbp), %rax
+    0.00 :   2aa9:        movq    %rax, %rdi
+    0.00 :   2aac:        callq   0x1150 <_init+0x150>
+    0.00 :   2ab1:        nop
+    0.00 :   2ab2:        movq    -0x8(%rbp), %rax
+    0.00 :   2ab6:        subq    %fs:0x28, %rax
+    0.00 :   2abf:        je      0x2ac6 <color_quant+0x246>
+    0.00 :   2ac1:        callq   0x11b0 <_init+0x1b0>
+    0.00 :   2ac6:        leave
+    0.00 :   2ac7:        retq
+ Percent |	Source code & Disassembly of color_quant for cpu_core/cycles/P (143 samples, percent: local period)
+-------------------------------------------------------------------------------------------------------------------
+         : 0    0x18c4 <heap_add>:
+    0.00 :   18c4:        endbr64
+    0.00 :   18c8:        pushq   %rbp
+    0.00 :   18c9:        movq    %rsp, %rbp
+   14.80 :   18cc:        subq    $0x10, %rsp
+    0.00 :   18d0:        movq    %rdi, -0x8(%rbp)
+    0.00 :   18d4:        movq    %rsi, -0x10(%rbp)
+    0.00 :   18d8:        movq    -0x10(%rbp), %rax
+   15.51 :   18dc:        movzbl  0x22(%rax), %eax
+    0.00 :   18e0:        movzbl  %al, %eax
+    0.00 :   18e3:        andl    $0x1, %eax
+    0.00 :   18e6:        testl   %eax, %eax
+    0.00 :   18e8:        je      0x1915 <heap_add+0x51>
+    9.15 :   18ea:        movq    -0x10(%rbp), %rdx
+    0.00 :   18ee:        movq    -0x8(%rbp), %rax
+    0.00 :   18f2:        movq    %rdx, %rsi
+    0.00 :   18f5:        movq    %rax, %rdi
+   23.00 :   18f8:        callq   0x16c2 <down_heap>
+    0.00 :   18fd:        movq    -0x10(%rbp), %rdx
+    0.00 :   1901:        movq    -0x8(%rbp), %rax
+    0.00 :   1905:        movq    %rdx, %rsi
+   12.66 :   1908:        movq    %rax, %rdi
+    6.34 :   190b:        callq   0x1802 <up_heap>
+   10.08 :   1910:        jmp     0x19eb <heap_add+0x127>
+    0.00 :   1915:        movq    -0x10(%rbp), %rax
+    0.00 :   1919:        movzbl  0x22(%rax), %eax
+    0.00 :   191d:        orl     $0x1, %eax
+    0.00 :   1920:        movl    %eax, %edx
+    0.00 :   1922:        movq    -0x10(%rbp), %rax
+    0.00 :   1926:        movb    %dl, 0x22(%rax)
+    0.00 :   1929:        movq    -0x8(%rbp), %rax
+    0.00 :   192d:        movl    0x4(%rax), %eax
+    0.00 :   1930:        testl   %eax, %eax
+    0.00 :   1932:        jne     0x193f <heap_add+0x7b>
+    0.00 :   1934:        movq    -0x8(%rbp), %rax
+    0.00 :   1938:        movl    $0x1, 0x4(%rax)
+    0.00 :   193f:        movq    -0x8(%rbp), %rax
+    0.00 :   1943:        movl    0x4(%rax), %edx
+    0.00 :   1946:        movq    -0x8(%rbp), %rax
+    0.00 :   194a:        movl    (%rax), %eax
+    0.00 :   194c:        cmpl    %eax, %edx
+    0.00 :   194e:        jl      0x19a0 <heap_add+0xdc>
+    0.00 :   1950:        jmp     0x1964 <heap_add+0xa0>
+    0.00 :   1952:        movq    -0x8(%rbp), %rax
+    0.00 :   1956:        movl    (%rax), %eax
+    0.00 :   1958:        leal    0x400(%rax), %edx
+    0.00 :   195e:        movq    -0x8(%rbp), %rax
+    0.00 :   1962:        movl    %edx, (%rax)
+    0.00 :   1964:        movq    -0x8(%rbp), %rax
+    0.00 :   1968:        movl    0x4(%rax), %edx
+    0.00 :   196b:        movq    -0x8(%rbp), %rax
+    0.00 :   196f:        movl    (%rax), %eax
+    0.00 :   1971:        cmpl    %eax, %edx
+    0.00 :   1973:        jge     0x1952 <heap_add+0x8e>
+    0.00 :   1975:        movq    -0x8(%rbp), %rax
+    0.00 :   1979:        movl    (%rax), %eax
+    0.00 :   197b:        cltq
+    0.00 :   197d:        leaq    (,%rax,8), %rdx
+    0.00 :   1985:        movq    -0x8(%rbp), %rax
+    0.00 :   1989:        movq    0x8(%rax), %rax
+    0.00 :   198d:        movq    %rdx, %rsi
+    0.00 :   1990:        movq    %rax, %rdi
+    0.00 :   1993:        callq   0x1210 <_init+0x210>
+    0.00 :   1998:        movq    -0x8(%rbp), %rdx
+    0.00 :   199c:        movq    %rax, 0x8(%rdx)
+    0.00 :   19a0:        movq    -0x8(%rbp), %rax
+    0.00 :   19a4:        movl    0x4(%rax), %edx
+    0.00 :   19a7:        movq    -0x10(%rbp), %rax
+    0.00 :   19ab:        movl    %edx, 0x1c(%rax)
+    0.00 :   19ae:        movq    -0x8(%rbp), %rax
+    0.00 :   19b2:        movq    0x8(%rax), %rsi
+    0.00 :   19b6:        movq    -0x8(%rbp), %rax
+    0.00 :   19ba:        movl    0x4(%rax), %eax
+    0.00 :   19bd:        leal    0x1(%rax), %ecx
+    0.00 :   19c0:        movq    -0x8(%rbp), %rdx
+    0.00 :   19c4:        movl    %ecx, 0x4(%rdx)
+    0.00 :   19c7:        cltq
+    0.00 :   19c9:        shlq    $0x3, %rax
+    0.00 :   19cd:        leaq    (%rsi,%rax), %rdx
+    0.00 :   19d1:        movq    -0x10(%rbp), %rax
+    0.00 :   19d5:        movq    %rax, (%rdx)
+    0.00 :   19d8:        movq    -0x10(%rbp), %rdx
+    0.00 :   19dc:        movq    -0x8(%rbp), %rax
+    0.00 :   19e0:        movq    %rdx, %rsi
+    0.00 :   19e3:        movq    %rax, %rdi
+    0.00 :   19e6:        callq   0x1802 <up_heap>
+    0.00 :   19eb:        leave
+    8.45 :   19ec:        retq
+ Percent |	Source code & Disassembly of libc.so.6 for cpu_core/cycles/P (1 samples, percent: local period)
+---------------------------------------------------------------------------------------------------------------
+         : 0      0x197b40 <__memmove_avx_unaligned_erms>:
+    0.00 :   197b40:        endbr64
+    0.00 :   197b44:        movq    %rdi, %rax
+    0.00 :   197b47:        cmpq    $0x20, %rdx
+    0.00 :   197b4b:        jb      0x197b70 <__memcpy_avx_unaligned_erms+0x30>
+    0.00 :   197b4d:        vmovdqu (%rsi), %ymm0
+    0.00 :   197b51:        cmpq    $0x40, %rdx
+    0.00 :   197b55:        ja      0x197c00 <__memcpy_avx_unaligned_erms+0xc0>
+    0.00 :   197b5b:        vmovdqu -0x20(%rsi,%rdx), %ymm1
+    0.00 :   197b61:        vmovdqu %ymm0, (%rdi)
+    0.00 :   197b65:        vmovdqu %ymm1, -0x20(%rdi,%rdx)
+    0.00 :   197b6b:        vzeroupper
+    0.00 :   197b6e:        retq
+    0.00 :   197b6f:        nop
+    0.00 :   197b70:        cmpl    $0x10, %edx
+    0.00 :   197b73:        jae     0x197ba2 <__memcpy_avx_unaligned_erms+0x62>
+    0.00 :   197b75:        cmpl    $0x8, %edx
+    0.00 :   197b78:        jae     0x197bc0 <__memcpy_avx_unaligned_erms+0x80>
+    0.00 :   197b7a:        cmpl    $0x4, %edx
+    0.00 :   197b7d:        jae     0x197b95 <__memcpy_avx_unaligned_erms+0x55>
+    0.00 :   197b7f:        cmpl    $0x1, %edx
+    0.00 :   197b82:        jl      0x197b94 <__memcpy_avx_unaligned_erms+0x54>
+    0.00 :   197b84:        movb    (%rsi), %cl
+    0.00 :   197b86:        je      0x197b92 <__memcpy_avx_unaligned_erms+0x52>
+    0.00 :   197b88:        movzwl  -0x2(%rsi,%rdx), %esi
+    0.00 :   197b8d:        movw    %si, -0x2(%rdi,%rdx)
+    0.00 :   197b92:        movb    %cl, (%rdi)
+    0.00 :   197b94:        retq
+    0.00 :   197b95:        movl    -0x4(%rsi,%rdx), %ecx
+    0.00 :   197b99:        movl    (%rsi), %esi
+    0.00 :   197b9b:        movl    %ecx, -0x4(%rdi,%rdx)
+    0.00 :   197b9f:        movl    %esi, (%rdi)
+    0.00 :   197ba1:        retq
+    0.00 :   197ba2:        vmovdqu (%rsi), %xmm0
+    0.00 :   197ba6:        vmovdqu -0x10(%rsi,%rdx), %xmm1
+    0.00 :   197bac:        vmovdqu %xmm0, (%rdi)
+    0.00 :   197bb0:        vmovdqu %xmm1, -0x10(%rdi,%rdx)
+    0.00 :   197bb6:        retq
+    0.00 :   197bb7:        nopw    (%rax,%rax)
+    0.00 :   197bc0:        movq    -0x8(%rsi,%rdx), %rcx
+    0.00 :   197bc5:        movq    (%rsi), %rsi
+    0.00 :   197bc8:        movq    %rsi, (%rdi)
+    0.00 :   197bcb:        movq    %rcx, -0x8(%rdi,%rdx)
+    0.00 :   197bd0:        retq
+    0.00 :   197bd1:        vmovdqu -0x20(%rsi,%rdx), %ymm2
+    0.00 :   197bd7:        vmovdqu -0x40(%rsi,%rdx), %ymm3
+    0.00 :   197bdd:        vmovdqu %ymm0, (%rdi)
+    0.00 :   197be1:        vmovdqu %ymm1, 0x20(%rdi)
+    0.00 :   197be6:        vmovdqu %ymm2, -0x20(%rdi,%rdx)
+    0.00 :   197bec:        vmovdqu %ymm3, -0x40(%rdi,%rdx)
+    0.00 :   197bf2:        vzeroupper
+    0.00 :   197bf5:        retq
+    0.00 :   197bf6:        nopw    %cs:(%rax,%rax)
+    0.00 :   197c00:        cmpq    0x7a619(%rip), %rdx  # 0x212220
+    0.00 :   197c07:        ja      0x197e00 <__memcpy_avx_unaligned_erms+0x2c0>
+    0.00 :   197c0d:        cmpq    $0x100, %rdx
+    0.00 :   197c14:        ja      0x197c75 <__memcpy_avx_unaligned_erms+0x135>
+    0.00 :   197c16:        vmovdqu 0x20(%rsi), %ymm1
+    0.00 :   197c1b:        cmpq    $0x80, %rdx
+    0.00 :   197c22:        jbe     0x197bd1 <__memcpy_avx_unaligned_erms+0x91>
+    0.00 :   197c24:        vmovdqu 0x40(%rsi), %ymm2
+    0.00 :   197c29:        vmovdqu 0x60(%rsi), %ymm3
+    0.00 :   197c2e:        vmovdqu -0x20(%rsi,%rdx), %ymm4
+    0.00 :   197c34:        vmovdqu -0x40(%rsi,%rdx), %ymm5
+    0.00 :   197c3a:        vmovdqu -0x60(%rsi,%rdx), %ymm6
+    0.00 :   197c40:        vmovdqu -0x80(%rsi,%rdx), %ymm7
+    0.00 :   197c46:        vmovdqu %ymm0, (%rdi)
+    0.00 :   197c4a:        vmovdqu %ymm1, 0x20(%rdi)
+    0.00 :   197c4f:        vmovdqu %ymm2, 0x40(%rdi)
+    0.00 :   197c54:        vmovdqu %ymm3, 0x60(%rdi)
+    0.00 :   197c59:        vmovdqu %ymm4, -0x20(%rdi,%rdx)
+    0.00 :   197c5f:        vmovdqu %ymm5, -0x40(%rdi,%rdx)
+    0.00 :   197c65:        vmovdqu %ymm6, -0x60(%rdi,%rdx)
+    0.00 :   197c6b:        vmovdqu %ymm7, -0x80(%rdi,%rdx)
+    0.00 :   197c71:        vzeroupper
+    0.00 :   197c74:        retq
+    0.00 :   197c75:        movq    %rdi, %rcx
+    0.00 :   197c78:        subq    %rsi, %rcx
+    0.00 :   197c7b:        cmpq    %rdx, %rcx
+    0.00 :   197c7e:        jb      0x197d30 <__memcpy_avx_unaligned_erms+0x1f0>
+    0.00 :   197c84:        cmpq    0x8160d(%rip), %rdx  # 0x219298
+    0.00 :   197c8b:        ja      0x197e60 <__memcpy_avx_unaligned_erms+0x320>
+    0.00 :   197c91:        leaq    (%rcx,%rdx), %r8
+    0.00 :   197c95:        xorq    %rcx, %r8
+    0.00 :   197c98:        shrq    $0x3f, %r8
+    0.00 :   197c9c:        andl    $0xf00, %ecx
+    0.00 :   197ca2:        addl    %r8d, %ecx
+    0.00 :   197ca5:        je      0x197d35 <__memcpy_avx_unaligned_erms+0x1f5>
+    0.00 :   197cab:        vmovdqu -0x20(%rsi,%rdx), %ymm5
+    0.00 :   197cb1:        vmovdqu -0x40(%rsi,%rdx), %ymm6
+    0.00 :   197cb7:        movq    %rdi, %rcx
+    0.00 :   197cba:        orq     $0x1f, %rdi
+    0.00 :   197cbe:        vmovdqu -0x60(%rsi,%rdx), %ymm7
+    0.00 :   197cc4:        vmovdqu -0x80(%rsi,%rdx), %ymm8
+    0.00 :   197cca:        subq    %rcx, %rsi
+    0.00 :   197ccd:        incq    %rdi
+    0.00 :   197cd0:        addq    %rdi, %rsi
+    0.00 :   197cd3:        leaq    -0x80(%rcx,%rdx), %rdx
+    0.00 :   197cd8:        nopl    (%rax,%rax)
+    0.00 :   197ce0:        vmovdqu (%rsi), %ymm1
+    0.00 :   197ce4:        vmovdqu 0x20(%rsi), %ymm2
+    0.00 :   197ce9:        vmovdqu 0x40(%rsi), %ymm3
+    0.00 :   197cee:        vmovdqu 0x60(%rsi), %ymm4
+    0.00 :   197cf3:        subq    $-0x80, %rsi
+    0.00 :   197cf7:        vmovdqa %ymm1, (%rdi)
+    0.00 :   197cfb:        vmovdqa %ymm2, 0x20(%rdi)
+    0.00 :   197d00:        vmovdqa %ymm3, 0x40(%rdi)
+    0.00 :   197d05:        vmovdqa %ymm4, 0x60(%rdi)
+    0.00 :   197d0a:        subq    $-0x80, %rdi
+    0.00 :   197d0e:        cmpq    %rdi, %rdx
+    0.00 :   197d11:        ja      0x197ce0 <__memcpy_avx_unaligned_erms+0x1a0>
+    0.00 :   197d13:        vmovdqu %ymm5, 0x60(%rdx)
+    0.00 :   197d18:        vmovdqu %ymm6, 0x40(%rdx)
+    0.00 :   197d1d:        vmovdqu %ymm7, 0x20(%rdx)
+    0.00 :   197d22:        vmovdqu %ymm8, (%rdx)
+    0.00 :   197d26:        vmovdqu %ymm0, (%rcx)
+    0.00 :   197d2a:        vzeroupper
+    0.00 :   197d2d:        retq
+    0.00 :   197d2e:        nop
+    0.00 :   197d30:        testq   %rcx, %rcx
+    0.00 :   197d33:        je      0x197d2a <__memcpy_avx_unaligned_erms+0x1ea>
+    0.00 :   197d35:        vmovdqu 0x20(%rsi), %ymm5
+    0.00 :   197d3a:        vmovdqu 0x40(%rsi), %ymm6
+    0.00 :   197d3f:        leaq    -0x81(%rdi,%rdx), %rcx
+    0.00 :   197d47:        vmovdqu 0x60(%rsi), %ymm7
+    0.00 :   197d4c:        vmovdqu -0x20(%rsi,%rdx), %ymm8
+    0.00 :   197d52:        subq    %rdi, %rsi
+    0.00 :   197d55:        andq    $-0x20, %rcx
+    0.00 :   197d59:        addq    %rcx, %rsi
+    0.00 :   197d5c:        nopl    (%rax)
+    0.00 :   197d60:        vmovdqu 0x60(%rsi), %ymm1
+    0.00 :   197d65:        vmovdqu 0x40(%rsi), %ymm2
+    0.00 :   197d6a:        vmovdqu 0x20(%rsi), %ymm3
+    0.00 :   197d6f:        vmovdqu (%rsi), %ymm4
+    0.00 :   197d73:        addq    $-0x80, %rsi
+    0.00 :   197d77:        vmovdqa %ymm1, 0x60(%rcx)
+    0.00 :   197d7c:        vmovdqa %ymm2, 0x40(%rcx)
+    0.00 :   197d81:        vmovdqa %ymm3, 0x20(%rcx)
+    0.00 :   197d86:        vmovdqa %ymm4, (%rcx)
+    0.00 :   197d8a:        addq    $-0x80, %rcx
+    0.00 :   197d8e:        cmpq    %rcx, %rdi
+    0.00 :   197d91:        jb      0x197d60 <__memcpy_avx_unaligned_erms+0x220>
+    0.00 :   197d93:        vmovdqu %ymm0, (%rdi)
+    0.00 :   197d97:        vmovdqu %ymm5, 0x20(%rdi)
+    0.00 :   197d9c:        vmovdqu %ymm6, 0x40(%rdi)
+    0.00 :   197da1:        vmovdqu %ymm7, 0x60(%rdi)
+    0.00 :   197da6:        vmovdqu %ymm8, -0x20(%rdx,%rdi)
+    0.00 :   197dac:        vzeroupper
+    0.00 :   197daf:        retq
+    0.00 :   197db0:        nopl    (%rax,%rax)
+    0.00 :   197db5:        nopw    %cs:(%rax,%rax)
+    0.00 :   197dc0:        vmovdqu 0x20(%rsi), %ymm1
+    0.00 :   197dc5:        testl   $0xe00, %ecx
+    0.00 :   197dcb:        jne     0x197e32 <__memcpy_avx_unaligned_erms+0x2f2>
+    0.00 :   197dcd:        movq    %rcx, %r9
+    0.00 :   197dd0:        leaq    -0x1(%rsi,%rdx), %rcx
+    0.00 :   197dd5:        orq     $0x3f, %rsi
+    0.00 :   197dd9:        leaq    0x1(%rsi,%r9), %rdi
+    0.00 :   197dde:        subq    %rsi, %rcx
+    0.00 :   197de1:        incq    %rsi
+    0.00 :   197de4:        rep             movsb   (%rsi), %es:(%rdi)
+    0.00 :   197de6:        vmovdqu %ymm0, (%r8)
+    0.00 :   197deb:        vmovdqu %ymm1, 0x20(%r8)
+    0.00 :   197df1:        vzeroupper
+    0.00 :   197df4:        retq
+    0.00 :   197df5:        nopw    %cs:(%rax,%rax)
+    0.00 :   197e00:        movq    %rdi, %rcx
+    0.00 :   197e03:        subq    %rsi, %rcx
+    0.00 :   197e06:        cmpq    %rdx, %rcx
+    0.00 :   197e09:        jb      0x197d30 <__memcpy_avx_unaligned_erms+0x1f0>
+    0.00 :   197e0f:        movq    %rdi, %r8
+    0.00 :   197e12:        cmpq    0x8146f(%rip), %rdx  # 0x219288
+    0.00 :   197e19:        jae     0x197e60 <__memcpy_avx_unaligned_erms+0x320>
+    0.00 :   197e1b:        testb   $0x1, 0x8145e(%rip)  # 0x219280
+    0.00 :   197e22:        je      0x197dc0 <__memcpy_avx_unaligned_erms+0x280>
+    0.00 :   197e24:        cmpl    $-0x40, %ecx
+    0.00 :   197e27:        ja      0x197cab <__memcpy_avx_unaligned_erms+0x16b>
+    0.00 :   197e2d:        vmovdqu 0x20(%rsi), %ymm1
+    0.00 :   197e32:        subq    %rdi, %rsi
+    0.00 :   197e35:        addq    $0x3f, %rdi
+    0.00 :   197e39:        leaq    (%r8,%rdx), %rcx
+    0.00 :   197e3d:        andq    $-0x40, %rdi
+    0.00 :   197e41:        addq    %rdi, %rsi
+    0.00 :   197e44:        subq    %rdi, %rcx
+  100.00 :   197e47:        rep             movsb   (%rsi), %es:(%rdi)
+    0.00 :   197e49:        vmovdqu %ymm0, (%r8)
+    0.00 :   197e4e:        vmovdqu %ymm1, 0x20(%r8)
+    0.00 :   197e54:        vzeroupper
+    0.00 :   197e57:        retq
+    0.00 :   197e58:        nopl    (%rax,%rax)
+    0.00 :   197e60:        movq    0x81431(%rip), %r11  # 0x219298
+    0.00 :   197e67:        cmpq    %r11, %rdx
+    0.00 :   197e6a:        jb      0x197c91 <__memcpy_avx_unaligned_erms+0x151>
+    0.00 :   197e70:        negq    %rcx
+    0.00 :   197e73:        cmpq    %rcx, %rdx
+    0.00 :   197e76:        ja      0x197cab <__memcpy_avx_unaligned_erms+0x16b>
+    0.00 :   197e7c:        vmovdqu 0x20(%rsi), %ymm1
+    0.00 :   197e81:        vmovdqu %ymm0, (%rdi)
+    0.00 :   197e85:        vmovdqu %ymm1, 0x20(%rdi)
+    0.00 :   197e8a:        movq    %rdi, %r8
+    0.00 :   197e8d:        andq    $0x3f, %r8
+    0.00 :   197e91:        subq    $0x40, %r8
+    0.00 :   197e95:        subq    %r8, %rsi
+    0.00 :   197e98:        subq    %r8, %rdi
+    0.00 :   197e9b:        addq    %r8, %rdx
+    0.00 :   197e9e:        notl    %ecx
+    0.00 :   197ea0:        movq    %rdx, %r10
+    0.00 :   197ea3:        testl   $0xf00, %ecx
+    0.00 :   197ea9:        je      0x198030 <__memcpy_avx_unaligned_erms+0x4f0>
+    0.00 :   197eaf:        shlq    $0x4, %r11
+    0.00 :   197eb3:        cmpq    %r11, %rdx
+    0.00 :   197eb6:        jae     0x198030 <__memcpy_avx_unaligned_erms+0x4f0>
+    0.00 :   197ebc:        andl    $0x1fff, %edx
+    0.00 :   197ec2:        shrq    $0xd, %r10
+    0.00 :   197ec6:        nopw    %cs:(%rax,%rax)
+    0.00 :   197ed0:        movl    $0x20, %ecx
+    0.00 :   197ed5:        prefetcht0      0x80(%rsi)
+    0.00 :   197edc:        prefetcht0      0xc0(%rsi)
+    0.00 :   197ee3:        prefetcht0      0x100(%rsi)
+    0.00 :   197eea:        prefetcht0      0x140(%rsi)
+    0.00 :   197ef1:        prefetcht0      0x1080(%rsi)
+    0.00 :   197ef8:        prefetcht0      0x10c0(%rsi)
+    0.00 :   197eff:        prefetcht0      0x1100(%rsi)
+    0.00 :   197f06:        prefetcht0      0x1140(%rsi)
+    0.00 :   197f0d:        vmovdqu (%rsi), %ymm0
+    0.00 :   197f11:        vmovdqu 0x20(%rsi), %ymm1
+    0.00 :   197f16:        vmovdqu 0x40(%rsi), %ymm2
+    0.00 :   197f1b:        vmovdqu 0x60(%rsi), %ymm3
+    0.00 :   197f20:        vmovdqu 0x1000(%rsi), %ymm4
+    0.00 :   197f28:        vmovdqu 0x1020(%rsi), %ymm5
+    0.00 :   197f30:        vmovdqu 0x1040(%rsi), %ymm6
+    0.00 :   197f38:        vmovdqu 0x1060(%rsi), %ymm7
+    0.00 :   197f40:        subq    $-0x80, %rsi
+    0.00 :   197f44:        vmovntdq        %ymm0, (%rdi)
+    0.00 :   197f48:        vmovntdq        %ymm1, 0x20(%rdi)
+    0.00 :   197f4d:        vmovntdq        %ymm2, 0x40(%rdi)
+    0.00 :   197f52:        vmovntdq        %ymm3, 0x60(%rdi)
+    0.00 :   197f57:        vmovntdq        %ymm4, 0x1000(%rdi)
+    0.00 :   197f5f:        vmovntdq        %ymm5, 0x1020(%rdi)
+    0.00 :   197f67:        vmovntdq        %ymm6, 0x1040(%rdi)
+    0.00 :   197f6f:        vmovntdq        %ymm7, 0x1060(%rdi)
+    0.00 :   197f77:        subq    $-0x80, %rdi
+    0.00 :   197f7b:        decl    %ecx
+    0.00 :   197f7d:        jne     0x197ed5 <__memcpy_avx_unaligned_erms+0x395>
+    0.00 :   197f83:        addq    $0x1000, %rdi
+    0.00 :   197f8a:        addq    $0x1000, %rsi
+    0.00 :   197f91:        decq    %r10
+    0.00 :   197f94:        jne     0x197ed0 <__memcpy_avx_unaligned_erms+0x390>
+    0.00 :   197f9a:        sfence
+    0.00 :   197f9d:        cmpl    $0x80, %edx
+    0.00 :   197fa3:        jbe     0x197ffa <__memcpy_avx_unaligned_erms+0x4ba>
+    0.00 :   197fa5:        prefetcht0      0x80(%rsi)
+    0.00 :   197fac:        prefetcht0      0xc0(%rsi)
+    0.00 :   197fb3:        prefetcht0      0x80(%rdi)
+    0.00 :   197fba:        prefetcht0      0xc0(%rdi)
+    0.00 :   197fc1:        vmovdqu (%rsi), %ymm0
+    0.00 :   197fc5:        vmovdqu 0x20(%rsi), %ymm1
+    0.00 :   197fca:        vmovdqu 0x40(%rsi), %ymm2
+    0.00 :   197fcf:        vmovdqu 0x60(%rsi), %ymm3
+    0.00 :   197fd4:        subq    $-0x80, %rsi
+    0.00 :   197fd8:        addl    $-0x80, %edx
+    0.00 :   197fdb:        vmovdqa %ymm0, (%rdi)
+    0.00 :   197fdf:        vmovdqa %ymm1, 0x20(%rdi)
+    0.00 :   197fe4:        vmovdqa %ymm2, 0x40(%rdi)
+    0.00 :   197fe9:        vmovdqa %ymm3, 0x60(%rdi)
+    0.00 :   197fee:        subq    $-0x80, %rdi
+    0.00 :   197ff2:        cmpl    $0x80, %edx
+    0.00 :   197ff8:        ja      0x197fa5 <__memcpy_avx_unaligned_erms+0x465>
+    0.00 :   197ffa:        vmovdqu -0x80(%rsi,%rdx), %ymm0
+    0.00 :   198000:        vmovdqu -0x60(%rsi,%rdx), %ymm1
+    0.00 :   198006:        vmovdqu -0x40(%rsi,%rdx), %ymm2
+    0.00 :   19800c:        vmovdqu -0x20(%rsi,%rdx), %ymm3
+    0.00 :   198012:        vmovdqu %ymm0, -0x80(%rdi,%rdx)
+    0.00 :   198018:        vmovdqu %ymm1, -0x60(%rdi,%rdx)
+    0.00 :   19801e:        vmovdqu %ymm2, -0x40(%rdi,%rdx)
+    0.00 :   198024:        vmovdqu %ymm3, -0x20(%rdi,%rdx)
+    0.00 :   19802a:        vzeroupper
+    0.00 :   19802d:        retq
+    0.00 :   19802e:        nop
+    0.00 :   198030:        andl    $0x3fff, %edx
+    0.00 :   198036:        shrq    $0xe, %r10
+    0.00 :   19803a:        nopw    (%rax,%rax)
+    0.00 :   198040:        movl    $0x20, %ecx
+    0.00 :   198045:        prefetcht0      0x80(%rsi)
+    0.00 :   19804c:        prefetcht0      0xc0(%rsi)
+    0.00 :   198053:        prefetcht0      0x1080(%rsi)
+    0.00 :   19805a:        prefetcht0      0x10c0(%rsi)
+    0.00 :   198061:        prefetcht0      0x2080(%rsi)
+    0.00 :   198068:        prefetcht0      0x20c0(%rsi)
+    0.00 :   19806f:        prefetcht0      0x3080(%rsi)
+    0.00 :   198076:        prefetcht0      0x30c0(%rsi)
+    0.00 :   19807d:        vmovdqu (%rsi), %ymm0
+    0.00 :   198081:        vmovdqu 0x20(%rsi), %ymm1
+    0.00 :   198086:        vmovdqu 0x40(%rsi), %ymm2
+    0.00 :   19808b:        vmovdqu 0x60(%rsi), %ymm3
+    0.00 :   198090:        vmovdqu 0x1000(%rsi), %ymm4
+    0.00 :   198098:        vmovdqu 0x1020(%rsi), %ymm5
+    0.00 :   1980a0:        vmovdqu 0x1040(%rsi), %ymm6
+    0.00 :   1980a8:        vmovdqu 0x1060(%rsi), %ymm7
+    0.00 :   1980b0:        vmovdqu 0x2000(%rsi), %ymm8
+    0.00 :   1980b8:        vmovdqu 0x2020(%rsi), %ymm9
+    0.00 :   1980c0:        vmovdqu 0x2040(%rsi), %ymm10
+    0.00 :   1980c8:        vmovdqu 0x2060(%rsi), %ymm11
+    0.00 :   1980d0:        vmovdqu 0x3000(%rsi), %ymm12
+    0.00 :   1980d8:        vmovdqu 0x3020(%rsi), %ymm13
+    0.00 :   1980e0:        vmovdqu 0x3040(%rsi), %ymm14
+    0.00 :   1980e8:        vmovdqu 0x3060(%rsi), %ymm15
+    0.00 :   1980f0:        subq    $-0x80, %rsi
+    0.00 :   1980f4:        vmovntdq        %ymm0, (%rdi)
+    0.00 :   1980f8:        vmovntdq        %ymm1, 0x20(%rdi)
+    0.00 :   1980fd:        vmovntdq        %ymm2, 0x40(%rdi)
+    0.00 :   198102:        vmovntdq        %ymm3, 0x60(%rdi)
+    0.00 :   198107:        vmovntdq        %ymm4, 0x1000(%rdi)
+    0.00 :   19810f:        vmovntdq        %ymm5, 0x1020(%rdi)
+    0.00 :   198117:        vmovntdq        %ymm6, 0x1040(%rdi)
+    0.00 :   19811f:        vmovntdq        %ymm7, 0x1060(%rdi)
+    0.00 :   198127:        vmovntdq        %ymm8, 0x2000(%rdi)
+    0.00 :   19812f:        vmovntdq        %ymm9, 0x2020(%rdi)
+    0.00 :   198137:        vmovntdq        %ymm10, 0x2040(%rdi)
+    0.00 :   19813f:        vmovntdq        %ymm11, 0x2060(%rdi)
+    0.00 :   198147:        vmovntdq        %ymm12, 0x3000(%rdi)
+    0.00 :   19814f:        vmovntdq        %ymm13, 0x3020(%rdi)
+    0.00 :   198157:        vmovntdq        %ymm14, 0x3040(%rdi)
+    0.00 :   19815f:        vmovntdq        %ymm15, 0x3060(%rdi)
+    0.00 :   198167:        subq    $-0x80, %rdi
+    0.00 :   19816b:        decl    %ecx
+    0.00 :   19816d:        jne     0x198045 <__memcpy_avx_unaligned_erms+0x505>
+    0.00 :   198173:        addq    $0x3000, %rdi
+    0.00 :   19817a:        addq    $0x3000, %rsi
+    0.00 :   198181:        decq    %r10
+    0.00 :   198184:        jne     0x198040 <__memcpy_avx_unaligned_erms+0x500>
+    0.00 :   19818a:        sfence
+    0.00 :   19818d:        cmpl    $0x80, %edx
+    0.00 :   198193:        jbe     0x1981ea <__memcpy_avx_unaligned_erms+0x6aa>
+    0.00 :   198195:        prefetcht0      0x80(%rsi)
+    0.00 :   19819c:        prefetcht0      0xc0(%rsi)
+    0.00 :   1981a3:        prefetcht0      0x80(%rdi)
+    0.00 :   1981aa:        prefetcht0      0xc0(%rdi)
+    0.00 :   1981b1:        vmovdqu (%rsi), %ymm0
+    0.00 :   1981b5:        vmovdqu 0x20(%rsi), %ymm1
+    0.00 :   1981ba:        vmovdqu 0x40(%rsi), %ymm2
+    0.00 :   1981bf:        vmovdqu 0x60(%rsi), %ymm3
+    0.00 :   1981c4:        subq    $-0x80, %rsi
+    0.00 :   1981c8:        addl    $-0x80, %edx
+    0.00 :   1981cb:        vmovdqa %ymm0, (%rdi)
+    0.00 :   1981cf:        vmovdqa %ymm1, 0x20(%rdi)
+    0.00 :   1981d4:        vmovdqa %ymm2, 0x40(%rdi)
+    0.00 :   1981d9:        vmovdqa %ymm3, 0x60(%rdi)
+    0.00 :   1981de:        subq    $-0x80, %rdi
+    0.00 :   1981e2:        cmpl    $0x80, %edx
+    0.00 :   1981e8:        ja      0x198195 <__memcpy_avx_unaligned_erms+0x655>
+    0.00 :   1981ea:        vmovdqu -0x80(%rsi,%rdx), %ymm0
+    0.00 :   1981f0:        vmovdqu -0x60(%rsi,%rdx), %ymm1
+    0.00 :   1981f6:        vmovdqu -0x40(%rsi,%rdx), %ymm2
+    0.00 :   1981fc:        vmovdqu -0x20(%rsi,%rdx), %ymm3
+    0.00 :   198202:        vmovdqu %ymm0, -0x80(%rdi,%rdx)
+    0.00 :   198208:        vmovdqu %ymm1, -0x60(%rdi,%rdx)
+    0.00 :   19820e:        vmovdqu %ymm2, -0x40(%rdi,%rdx)
+    0.00 :   198214:        vmovdqu %ymm3, -0x20(%rdi,%rdx)
+    0.00 :   19821a:        vzeroupper
+    0.00 :   19821d:        retq
+ Percent |	Source code & Disassembly of color_quant for cpu_core/cycles/P (1 samples, percent: local period)
+-----------------------------------------------------------------------------------------------------------------
+         : 0    0x1ab8 <node_new>:
+    0.00 :   1ab8:        endbr64
+    0.00 :   1abc:        pushq   %rbp
+    0.00 :   1abd:        movq    %rsp, %rbp
+    0.00 :   1ac0:        subq    $0x20, %rsp
+    0.00 :   1ac4:        movl    %edi, %ecx
+    0.00 :   1ac6:        movl    %esi, %eax
+    0.00 :   1ac8:        movq    %rdx, -0x20(%rbp)
+    0.00 :   1acc:        movl    %ecx, %edx
+    0.00 :   1ace:        movb    %dl, -0x14(%rbp)
+    0.00 :   1ad1:        movb    %al, -0x18(%rbp)
+    0.00 :   1ad4:        movl    0x355e(%rip), %eax  # 0x5038 <len.1>
+    0.00 :   1ada:        cmpl    $0x1, %eax
+    0.00 :   1add:        jg      0x1b16 <node_new+0x5e>
+    0.00 :   1adf:        movl    $0x800, %esi
+    0.00 :   1ae4:        movl    $0x70, %edi
+    0.00 :   1ae9:        callq   0x11e0 <_init+0x1e0>
+    0.00 :   1aee:        movq    %rax, -0x10(%rbp)
+    0.00 :   1af2:        movq    0x3537(%rip), %rdx  # 0x5030 <pool>
+    0.00 :   1af9:        movq    -0x10(%rbp), %rax
+    0.00 :   1afd:        movq    %rdx, 0x68(%rax)
+    0.00 :   1b01:        movq    -0x10(%rbp), %rax
+    0.00 :   1b05:        movq    %rax, 0x3524(%rip)  # 0x5030 <pool>
+    0.00 :   1b0c:        movl    $0x7ff, 0x3522(%rip)  # 0x5038 <len.1>
+    0.00 :   1b16:        movq    0x3513(%rip), %rcx  # 0x5030 <pool>
+    0.00 :   1b1d:        movl    0x3515(%rip), %eax  # 0x5038 <len.1>
+    0.00 :   1b23:        leal    -0x1(%rax), %edx
+    0.00 :   1b26:        movl    %edx, 0x350c(%rip)  # 0x5038 <len.1>
+    0.00 :   1b2c:        cltq
+    0.00 :   1b2e:        imulq   $0x70, %rax, %rax
+    0.00 :   1b32:        addq    %rcx, %rax
+    0.00 :   1b35:        movq    %rax, -0x8(%rbp)
+    0.00 :   1b39:        movq    -0x8(%rbp), %rax
+    0.00 :   1b3d:        movzbl  -0x14(%rbp), %edx
+  100.00 :   1b41:        movb    %dl, 0x21(%rax)
+    0.00 :   1b44:        movq    -0x8(%rbp), %rax
+    0.00 :   1b48:        movzbl  -0x18(%rbp), %edx
+    0.00 :   1b4c:        movb    %dl, 0x23(%rax)
+    0.00 :   1b4f:        movq    -0x8(%rbp), %rax
+    0.00 :   1b53:        movq    -0x20(%rbp), %rdx
+    0.00 :   1b57:        movq    %rdx, 0x68(%rax)
+    0.00 :   1b5b:        cmpq    $0x0, -0x20(%rbp)
+    0.00 :   1b60:        je      0x1b74 <node_new+0xbc>
+    0.00 :   1b62:        movq    -0x20(%rbp), %rax
+    0.00 :   1b66:        movzbl  0x20(%rax), %eax
+    0.00 :   1b6a:        leal    0x1(%rax), %edx
+    0.00 :   1b6d:        movq    -0x20(%rbp), %rax
+    0.00 :   1b71:        movb    %dl, 0x20(%rax)
+    0.00 :   1b74:        movq    -0x8(%rbp), %rax
+    0.00 :   1b78:        leave
+    0.00 :   1b79:        retq

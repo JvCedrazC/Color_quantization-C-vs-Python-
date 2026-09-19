@@ -1,0 +1,1 @@
+Tempo de execução da quantização: 41.287324751 segundos

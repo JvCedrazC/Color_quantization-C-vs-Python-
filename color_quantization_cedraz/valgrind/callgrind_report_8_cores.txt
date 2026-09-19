@@ -1,0 +1,404 @@
+--------------------------------------------------------------------------------
+Profile data file 'valgrind/callgrind_8_cores.out' (creator: callgrind-3.26.0)
+--------------------------------------------------------------------------------
+I1 cache: 
+D1 cache: 
+LL cache: 
+Timerange: Basic block 0 - 1395877180
+Trigger: Program termination
+Profiled target:  build/color_quant sample_5184×3456.ppm 8 /tmp/color-quant-callgrind-all.jPPflG/quantized_8.ppm (PID 12515, part 1)
+Events recorded:  Ir
+Events shown:     Ir
+Event sort order: Ir
+Thresholds:       99
+Include dirs:     
+User annotated:   
+Auto-annotation:  on
+
+--------------------------------------------------------------------------------
+Ir                      
+--------------------------------------------------------------------------------
+11,963,906,858 (100.0%)  PROGRAM TOTALS
+
+--------------------------------------------------------------------------------
+Ir                      file:function
+--------------------------------------------------------------------------------
+5,840,599,576 (48.82%)  color_quant.c:node_insert [/home/joao/HPC/color_quantization_cedraz/build/color_quant]
+1,737,842,688 (14.53%)  color_quant.c:color_replace [/home/joao/HPC/color_quantization_cedraz/build/color_quant]
+1,604,668,327 (13.41%)  color_quant.c:cmp_node [/home/joao/HPC/color_quantization_cedraz/build/color_quant]
+  918,349,150 ( 7.68%)  color_quant.c:down_heap [/home/joao/HPC/color_quantization_cedraz/build/color_quant]
+  822,862,610 ( 6.88%)  color_quant.c:up_heap [/home/joao/HPC/color_quantization_cedraz/build/color_quant]
+  591,245,449 ( 4.94%)  color_quant.c:color_quant [/home/joao/HPC/color_quantization_cedraz/build/color_quant]
+  447,966,383 ( 3.74%)  color_quant.c:heap_add [/home/joao/HPC/color_quantization_cedraz/build/color_quant]
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: color_quant.c
+--------------------------------------------------------------------------------
+Ir                     
+
+-- line 9 ----------------------------------------
+            .           #include <time.h>
+            .           
+            .           typedef struct {
+            .           	int w, h;
+            .           	unsigned char *pix;
+            .           } image_t, *image;
+            .           
+            .           int write_ppm(image im, char *fn)
+            6 ( 0.00%)  {
+            6 ( 0.00%)  	FILE *fp = fopen(fn, "wb");
+          484 ( 0.00%)  => ???:0x0000000004001220 (1x)
+            2 ( 0.00%)  	if (!fp) return 0;
+            9 ( 0.00%)  	fprintf(fp, "P6\n%d %d\n255\n", im->w, im->h);
+        1,418 ( 0.00%)  => ???:0x00000000040011f0 (1x)
+           15 ( 0.00%)  	fwrite(im->pix, 1, 3 * im->w * im->h, fp);
+          896 ( 0.00%)  => ???:0x0000000004001240 (1x)
+            3 ( 0.00%)  	fclose(fp);
+          611 ( 0.00%)  => ???:0x00000000040011a0 (1x)
+            1 ( 0.00%)  	return 1;
+            2 ( 0.00%)  }
+            .           
+            .           image img_new(int w, int h)
+            6 ( 0.00%)  {
+           11 ( 0.00%)  	image im = malloc(sizeof(image_t) + h * w * 3);
+          310 ( 0.00%)  => ???:0x0000000004001200 (1x)
+            6 ( 0.00%)  	im->w = w; im->h = h;
+            4 ( 0.00%)  	im->pix = (unsigned char *)(im + 1);
+            1 ( 0.00%)  	return im;
+            2 ( 0.00%)  }
+            .           
+            .           int read_num(FILE *f)
+           24 ( 0.00%)  {
+            .           	int n;
+           30 ( 0.00%)  	while (!fscanf(f, "%d ", &n)) {
+        2,396 ( 0.00%)  => ???:0x0000000004001170 (3x)
+            .           		if ((n = fgetc(f)) == '#') {
+            .           			while ((n = fgetc(f)) != '\n')
+            .           				if (n == EOF) return 0;
+            .           		} else
+            .           			return 0;
+            .           	}
+            3 ( 0.00%)  	return n;
+           15 ( 0.00%)  }
+            .           
+            .           image read_ppm(char *fn)
+            6 ( 0.00%)  {
+            6 ( 0.00%)  	FILE *fp = fopen(fn, "rb");
+          822 ( 0.00%)  => ???:0x0000000004001220 (1x)
+            .           	int w, h, maxval;
+            1 ( 0.00%)  	image im = 0;
+            2 ( 0.00%)  	if (!fp) return 0;
+            .           
+           23 ( 0.00%)  	if (fgetc(fp) != 'P' || fgetc(fp) != '6' || !isspace(fgetc(fp)))
+          447 ( 0.00%)  => ???:0x00000000040011d0 (3x)
+            6 ( 0.00%)  => ???:0x0000000004001250 (1x)
+            .           		goto bail;
+            .           
+            4 ( 0.00%)  	w = read_num(fp);
+          839 ( 0.00%)  => color_quant.c:read_num (1x)
+            4 ( 0.00%)  	h = read_num(fp);
+          839 ( 0.00%)  => color_quant.c:read_num (1x)
+            4 ( 0.00%)  	maxval = read_num(fp);
+          790 ( 0.00%)  => color_quant.c:read_num (1x)
+            6 ( 0.00%)  	if (!w || !h || !maxval) goto bail;
+            .           
+            6 ( 0.00%)  	im = img_new(w, h);
+          340 ( 0.00%)  => color_quant.c:img_new (1x)
+           14 ( 0.00%)  	fread(im->pix, 1, 3 * w * h, fp);
+          785 ( 0.00%)  => ???:0x0000000004001180 (1x)
+            .           bail:
+            5 ( 0.00%)  	if (fp) fclose(fp);
+          814 ( 0.00%)  => ???:0x00000000040011a0 (1x)
+            1 ( 0.00%)  	return im;
+            3 ( 0.00%)  }
+            .           
+            .           
+            .           #define ON_INHEAP	1
+            .           
+            .           typedef struct oct_node_t oct_node_t, *oct_node;
+            .           struct oct_node_t{
+            .           	int64_t r, g, b; /* sum of all child node colors */
+            .           	int count, heap_idx;
+-- line 75 ----------------------------------------
+-- line 78 ----------------------------------------
+            .           };
+            .           
+            .           typedef struct {
+            .           	int alloc, n;
+            .           	oct_node* buf;
+            .           } node_heap;
+            .           
+            .           int cmp_node(oct_node a, oct_node b)
+  179,051,825 ( 1.50%)  {
+  214,862,584 ( 1.80%)  	if (a->n_kids < b->n_kids) return -1;
+  214,863,094 ( 1.80%)  	if (a->n_kids > b->n_kids) return 1;
+            .           
+  322,282,125 ( 2.69%)  	int ac = a->count >> a->depth;
+  322,282,125 ( 2.69%)  	int bc = b->count >> b->depth;
+  279,705,844 ( 2.34%)  	return ac < bc ? -1 : ac > bc;
+   71,620,730 ( 0.60%)  }
+            .           
+            .           void down_heap(node_heap *h, oct_node p)
+  107,503,440 ( 0.90%)  {
+   53,751,720 ( 0.45%)  	int n = p->heap_idx, m;
+            .           	while (1) {
+   53,936,944 ( 0.45%)  		m = n * 2;
+   89,747,592 ( 0.75%)  		if (m >= h->n) break;
+  235,220,962 ( 1.97%)  		if (m + 1 < h->n && cmp_node(h->buf[m], h->buf[m + 1]) > 0) m++;
+  402,595,519 ( 3.37%)  => color_quant.c:cmp_node (8,946,855x)
+            .           
+  126,189,482 ( 1.05%)  		if (cmp_node(p, h->buf[m]) <= 0) break;
+  398,980,054 ( 3.33%)  => color_quant.c:cmp_node (9,016,842x)
+            .           
+      648,284 ( 0.01%)  		h->buf[n] = h->buf[m];
+      416,754 ( 0.00%)  		h->buf[n]->heap_idx = n;
+       92,612 ( 0.00%)  		n = m;
+            .           	}
+  143,337,920 ( 1.20%)  	h->buf[n] = p;
+   53,751,720 ( 0.45%)  	p->heap_idx = n;
+   53,751,720 ( 0.45%)  }
+            .           
+            .           void up_heap(node_heap *h, oct_node p)
+  107,503,488 ( 0.90%)  {
+   53,751,744 ( 0.45%)  	int n = p->heap_idx;
+            .           	oct_node prev;
+            .           
+   53,823,938 ( 0.45%)  	while (n > 1) {
+  214,160,016 ( 1.79%)  		prev = h->buf[n / 2];
+  142,772,806 ( 1.19%)  		if (cmp_node(p, prev) >= 0) break;
+  803,092,754 ( 6.71%)  => color_quant.c:cmp_node (17,846,668x)
+            .           
+        4,304 ( 0.00%)  		h->buf[n] = prev;
+        1,614 ( 0.00%)  		prev->heap_idx = n;
+        3,228 ( 0.00%)  		n /= 2;
+            .           	}
+  143,337,984 ( 1.20%)  	h->buf[n] = p;
+   53,751,744 ( 0.45%)  	p->heap_idx = n;
+   53,751,744 ( 0.45%)  }
+            .           
+            .           void heap_add(node_heap *h, oct_node p)
+  107,503,488 ( 0.90%)  {
+  107,503,488 ( 0.90%)  	if ((p->flags & ON_INHEAP)) {
+   89,579,480 ( 0.75%)  		down_heap(h, p);
+1,718,680,363 (14.37%)  => color_quant.c:down_heap (17,915,896x)
+   89,579,480 ( 0.75%)  		up_heap(h, p);
+1,625,799,033 (13.59%)  => color_quant.c:up_heap (17,915,896x)
+   17,915,896 ( 0.15%)  		return;
+            .           	}
+            .           
+        8,112 ( 0.00%)  	p->flags |= ON_INHEAP;
+        5,410 ( 0.00%)  	if (!h->n) h->n = 1;
+        8,112 ( 0.00%)  	if (h->n >= h->alloc) {
+           18 ( 0.00%)  		while (h->n >= h->alloc) h->alloc += 1024;
+           11 ( 0.00%)  		h->buf = realloc(h->buf, sizeof(oct_node) * h->alloc);
+          147 ( 0.00%)  => ???:0x0000000004001210 (1x)
+            .           	}
+            .           
+        5,408 ( 0.00%)  	p->heap_idx = h->n;
+       16,224 ( 0.00%)  	h->buf[h->n++] = p;
+        6,760 ( 0.00%)  	up_heap(h, p);
+      156,331 ( 0.00%)  => color_quant.c:up_heap (1,352x)
+   35,834,496 ( 0.30%)  }
+            .           
+            .           oct_node pop_heap(node_heap *h)
+        6,720 ( 0.00%)  {
+        5,376 ( 0.00%)  	if (h->n <= 1) return 0;
+            .           
+        5,376 ( 0.00%)  	oct_node ret = h->buf[1];
+       22,848 ( 0.00%)  	h->buf[1] = h->buf[--h->n];
+            .           
+       10,752 ( 0.00%)  	h->buf[h->n] = 0;
+            .           
+        6,720 ( 0.00%)  	h->buf[1]->heap_idx = 1;
+       10,752 ( 0.00%)  	down_heap(h, h->buf[1]);
+    1,244,360 ( 0.01%)  => color_quant.c:down_heap (1,344x)
+            .           
+        1,344 ( 0.00%)  	return ret;
+        2,688 ( 0.00%)  }
+            .           
+            .           static oct_node pool = 0;
+            .           oct_node node_new(unsigned char idx, unsigned char depth, oct_node p)
+       13,530 ( 0.00%)  {
+            .           	static int len = 0;
+        4,059 ( 0.00%)  	if (len <= 1) {
+            4 ( 0.00%)  		oct_node p = calloc(sizeof(oct_node_t), 2048);
+          291 ( 0.00%)  => ???:0x00000000040011e0 (1x)
+            3 ( 0.00%)  		p->parent = pool;
+            2 ( 0.00%)  		pool = p;
+            1 ( 0.00%)  		len = 2047;
+            .           	}
+            .           
+       10,824 ( 0.00%)  	oct_node x = pool + len--;
+        4,059 ( 0.00%)  	x->kid_idx = idx;
+        4,059 ( 0.00%)  	x->depth = depth;
+        4,059 ( 0.00%)  	x->parent = p;
+        9,466 ( 0.00%)  	if (p) p->n_kids++;
+        1,353 ( 0.00%)  	return x;
+        2,706 ( 0.00%)  }
+            .           
+            .           void node_free()
+            4 ( 0.00%)  {
+            .           	oct_node p;
+            7 ( 0.00%)  	while (pool) {
+            3 ( 0.00%)  		p = pool->parent;
+            3 ( 0.00%)  		free(pool);
+           88 ( 0.00%)  => ???:0x0000000004001150 (1x)
+            2 ( 0.00%)  		pool = p;
+            .           	}
+            4 ( 0.00%)  }
+            .           
+            .           oct_node node_insert(oct_node root, unsigned char *pix)
+  125,411,328 ( 1.05%)  {
+   17,915,904 ( 0.15%)  	unsigned char i, bit, depth = 0;
+            .           
+  591,224,832 ( 4.94%)  	for (bit = 1 << 7; ++depth < 8; bit >>= 1) {
+2,848,628,736 (23.81%)  		i = !!(pix[1] & bit) * 4 + !!(pix[0] & bit) * 2 + !!(pix[2] & bit);
+  877,879,296 ( 7.34%)  		if (!root->kids[i])
+       14,872 ( 0.00%)  			root->kids[i] = node_new(i, depth, root);
+       54,080 ( 0.00%)  => color_quant.c:node_new (1,352x)
+            .           
+  752,467,968 ( 6.29%)  		root = root->kids[i];
+            .           	}
+            .           
+  143,327,232 ( 1.20%)  	root->r += pix[0];
+  161,243,136 ( 1.35%)  	root->g += pix[1];
+  161,243,136 ( 1.35%)  	root->b += pix[2];
+   89,579,520 ( 0.75%)  	root->count++;
+   17,915,904 ( 0.15%)  	return root;
+   53,747,712 ( 0.45%)  }
+            .           
+            .           oct_node node_fold(oct_node p)
+        6,720 ( 0.00%)  {
+        5,376 ( 0.00%)  	if (p->n_kids) abort();
+        4,032 ( 0.00%)  	oct_node q = p->parent;
+        9,408 ( 0.00%)  	q->count += p->count;
+            .           
+        9,408 ( 0.00%)  	q->r += p->r;
+        9,408 ( 0.00%)  	q->g += p->g;
+        9,408 ( 0.00%)  	q->b += p->b;
+        6,720 ( 0.00%)  	q->n_kids --;
+        9,408 ( 0.00%)  	q->kids[p->kid_idx] = 0;
+        1,344 ( 0.00%)  	return q;
+        2,688 ( 0.00%)  }
+            .           
+            .           void color_replace(oct_node root, unsigned char *pix)
+   89,579,520 ( 0.75%)  {
+            .           	unsigned char i, bit;
+            .           
+  125,411,328 ( 1.05%)  	for (bit = 1 << 7; bit; bit >>= 1) {
+  824,131,584 ( 6.89%)  		i = !!(pix[1] & bit) * 4 + !!(pix[0] & bit) * 2 + !!(pix[2] & bit);
+  268,738,560 ( 2.25%)  		if (!root->kids[i]) break;
+  107,495,424 ( 0.90%)  		root = root->kids[i];
+            .           	}
+            .           
+   89,579,520 ( 0.75%)  	pix[0] = root->r;
+   89,579,520 ( 0.75%)  	pix[1] = root->g;
+   89,579,520 ( 0.75%)  	pix[2] = root->b;
+   53,747,712 ( 0.45%)  }
+            .           
+            .           void error_diffuse(image im, node_heap *h)
+            .           {
+            .           	oct_node nearest_color(int *v) {
+            .           		int i;
+            .           		int diff, max = 100000000;
+            .           		oct_node o = 0;
+            .           		for (i = 1; i < h->n; i++) {
+-- line 248 ----------------------------------------
+-- line 315 ----------------------------------------
+            .           				npx[POS(i+1, j-1) + 2] += v[2] * C00;
+            .           			}
+            .           		}
+            .           	}
+            .           	free(npx);
+            .           }
+            .           
+            .           void color_quant(image im, int n_colors, int dither)
+           10 ( 0.00%)  {
+            .           	int i;
+            3 ( 0.00%)  	unsigned char *pix = im->pix;
+            3 ( 0.00%)  	node_heap heap = { 0, 0, 0 };
+            .           
+            5 ( 0.00%)  	oct_node root = node_new(0, 0, 0), got;
+          336 ( 0.00%)  => color_quant.c:node_new (1x)
+  161,243,145 ( 1.35%)  	for (i = 0; i < im->w * im->h; i++, pix += 3)
+  179,159,040 ( 1.50%)  		heap_add(&heap, node_insert(root, pix));
+5,840,653,656 (48.82%)  => color_quant.c:node_insert (17,915,904x)
+3,792,402,552 (31.70%)  => color_quant.c:heap_add (17,915,904x)
+            .           
+        6,726 ( 0.00%)  	while (heap.n > n_colors + 1)
+       13,440 ( 0.00%)  		heap_add(&heap, node_fold(pop_heap(&heap)));
+      199,705 ( 0.00%)  => color_quant.c:heap_add (1,344x)
+    1,316,936 ( 0.01%)  => color_quant.c:pop_heap (1,344x)
+       73,920 ( 0.00%)  => color_quant.c:node_fold (1,344x)
+            .           
+            .           	double c;
+           37 ( 0.00%)  	for (i = 1; i < heap.n; i++) {
+           56 ( 0.00%)  		got = heap.buf[i];
+           40 ( 0.00%)  		c = got->count;
+           88 ( 0.00%)  		got->r = got->r / c + .5;
+           88 ( 0.00%)  		got->g = got->g / c + .5;
+           88 ( 0.00%)  		got->b = got->b / c + .5;
+            .           	}
+            .           
+            2 ( 0.00%)  	if (dither) error_diffuse(im, &heap);
+            .           	else
+  161,243,148 ( 1.35%)  		for (i = 0, pix = im->pix; i < im->w * im->h; i++, pix += 3)
+   89,579,520 ( 0.75%)  			color_replace(root, pix);
+1,737,842,688 (14.53%)  => color_quant.c:color_replace (17,915,904x)
+            .           
+            1 ( 0.00%)  	node_free();
+          111 ( 0.00%)  => color_quant.c:node_free (1x)
+            3 ( 0.00%)  	free(heap.buf);
+          127 ( 0.00%)  => ???:0x0000000004001150 (1x)
+            6 ( 0.00%)  }
+            .           
+            .           // ./color_quant <imagem_entrada> <quantidade de cores> <imagem_saida>
+            .           int main(int c, char *v[])
+            9 ( 0.00%)  {
+            2 ( 0.00%)      if (c < 3) {
+            .                   fprintf(stderr, "usage: %s ppm_file n_colors\n", v[0]);
+            .                   return 0;
+            .               }
+            .           
+            9 ( 0.00%)      c = atoi(v[2]) ? : 16;
+          116 ( 0.00%)  => ???:0x0000000004001230 (1x)
+            .           
+            6 ( 0.00%)      image im = read_ppm(v[1]);
+        5,767 ( 0.00%)  => color_quant.c:read_ppm (1x)
+            .           
+            2 ( 0.00%)      if (!im) {
+            .                   fprintf(stderr, "Erro ao ler a imagem: %s\n", v[1]);
+            .                   return 1;
+            .               }
+            .           
+            .               struct timespec inicio, fim;
+            .           
+            4 ( 0.00%)      clock_gettime(CLOCK_MONOTONIC, &inicio);
+           13 ( 0.00%)  => ???:0x0000000004001190 (1x)
+            .           
+            6 ( 0.00%)      color_quant(im, c, 0);
+11,963,735,480 (100.0%)  => color_quant.c:color_quant (1x)
+            .           
+            4 ( 0.00%)      clock_gettime(CLOCK_MONOTONIC, &fim);
+           13 ( 0.00%)  => ???:0x0000000004001190 (1x)
+            .           
+            2 ( 0.00%)      double tempo =
+            5 ( 0.00%)          (fim.tv_sec - inicio.tv_sec) +
+            7 ( 0.00%)          (fim.tv_nsec - inicio.tv_nsec) / 1e9;
+            .           
+            6 ( 0.00%)      printf("Tempo de execução da quantização: %.9f segundos\n", tempo);
+        3,186 ( 0.00%)  => ???:0x00000000040011c0 (1x)
+            .           
+            7 ( 0.00%)      write_ppm(im, v[3]);
+        3,453 ( 0.00%)  => color_quant.c:write_ppm (1x)
+            3 ( 0.00%)      free(im);
+           82 ( 0.00%)  => ???:0x0000000004001150 (1x)
+            .           
+            1 ( 0.00%)      return 0;
+            5 ( 0.00%)  }
+
+--------------------------------------------------------------------------------
+Ir                      
+--------------------------------------------------------------------------------
+11,963,735,136 (100.0%)  events annotated
+

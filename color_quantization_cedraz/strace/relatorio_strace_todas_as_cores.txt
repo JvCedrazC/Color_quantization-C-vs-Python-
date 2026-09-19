@@ -1,0 +1,28 @@
+RELATÓRIO STRACE — TODAS AS QUANTIDADES DE CORES
+Data: 21/08/2026
+Imagem local: sample_5184×3456.ppm
+
+1. RESUMO
+
+Paleta   Tempo em syscalls   Chamadas   Erros   read (ms)   write (ms)
+(cores)        (ms)
+4             44,421            50        1      28,716       12,646
+8             32,413            50        1      17,810       12,678
+16            35,284            50        1      22,129       11,588
+32            47,359            50        1      28,259       15,807
+64            36,839            50        1      23,890       10,984
+128           34,185            50        1      18,172       14,401
+
+Todas as paletas fizeram 50 chamadas de sistema e registraram um erro em
+access, correspondente à sondagem de biblioteca/arquivo feita pelo carregador.
+read e write concentram a maior parte do tempo de syscall. Os totais de
+32–47 ms continuam muito abaixo do tempo total de aproximadamente 0,8–0,9 s.
+
+2. ARTEFATOS POR PALETA
+
+strace_summary_<paleta>_cores.txt: contagem e tempo por syscall.
+strace_summary_program_time_<paleta>.txt: tempo interno da execução resumida.
+strace_detailed_<paleta>_cores.txt: rastreamento com timestamps e duração.
+strace_detailed_program_time_<paleta>.txt: tempo interno da execução detalhada.
+
+Os arquivos existem para as paletas 4, 8, 16, 32, 64 e 128.

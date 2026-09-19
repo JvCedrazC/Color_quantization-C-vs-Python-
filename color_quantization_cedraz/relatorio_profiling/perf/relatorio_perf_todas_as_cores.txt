@@ -1,0 +1,49 @@
+RELATÓRIO PERF — TODAS AS QUANTIDADES DE CORES
+Data: 21/08/2026
+Imagem local: sample_5184×3456.ppm
+Paletas: 4, 8, 16, 32, 64 e 128 cores
+
+1. PERF STAT — MÉDIA DE CINCO EXECUÇÕES
+
+Paleta   Tempo médio ± desvio (s)     Ciclos         Instruções      IPC
+4        0,796242042 ± 0,005623177    2.995.031.680   11.803.001.214   3,9409
+8        0,829473717 ± 0,006547460    3.123.019.260   12.223.245.805   3,9139
+16       0,841256452 ± 0,005350744    3.165.827.653   12.263.267.161   3,8736
+32       0,838994774 ± 0,007321454    3.168.691.130   12.443.568.056   3,9270
+64       0,868838601 ± 0,003464215    3.284.531.409   12.854.542.403   3,9137
+128      0,878461970 ± 0,006215009    3.316.146.949   13.064.326.546   3,9396
+
+Paleta   Branch miss (%)   Cache miss (%)   L1 load misses   LLC load misses
+4              0,0692            66,22          2.468.341           972.831
+8              0,0703            66,14          2.738.053         1.039.472
+16             0,0657            67,06          2.502.532         1.012.769
+32             0,0658            67,99          2.780.660         1.064.666
+64             0,0641            68,02          2.585.594         1.055.407
+128            0,0602            68,88          2.560.566         1.034.948
+
+2. PERF RECORD/REPORT — HOTSPOTS CPU_CORE
+
+Paleta   color_quant   node_insert   color_replace   cmp_node
+(cores)  inclusivo %    próprio %      próprio %      próprio %
+4            92,07        46,54            8,96          14,53
+8            92,90        45,89           12,01          13,24
+16           93,22        46,07           12,59          13,87
+32           92,22        45,20           13,80          12,49
+64           93,07        45,17           16,68          12,43
+128          93,12        44,88           18,27          12,01
+
+O crescimento de color_replace acompanha o aumento da paleta. node_insert
+permanece como o maior custo próprio em todas as configurações. Os relatórios
+resolvem os símbolos do executável; símbolos do kernel ficaram restritos por
+kptr_restrict e não são necessários para identificar os hotspots do programa.
+
+3. ARTEFATOS POR PALETA
+
+perf_stat_<paleta>_cores.txt
+perf_stat_program_times_<paleta>.txt
+perf_<paleta>_cores.data
+perf_record_program_time_<paleta>.txt
+perf_report_<paleta>_cores.txt
+perf_annotate_<paleta>_cores.txt
+
+Os arquivos existem para as paletas 4, 8, 16, 32, 64 e 128.

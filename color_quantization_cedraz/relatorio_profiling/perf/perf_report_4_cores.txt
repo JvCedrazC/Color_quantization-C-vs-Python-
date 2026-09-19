@@ -1,0 +1,1533 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 9  of event 'cpu_atom/cycles/P'
+# Event count (approx.): 2428700
+#
+# Children      Self  Command      Shared Object  Symbol                    
+# ........  ........  ...........  .............  ..........................
+#
+   100.00%   100.00%  color_quant  color_quant    [.] node_insert
+            |
+            ---_start
+               __libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               color_quant
+               node_insert
+
+   100.00%     0.00%  color_quant  color_quant    [.] _start
+            |
+            ---_start
+               __libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               color_quant
+               node_insert
+
+   100.00%     0.00%  color_quant  libc.so.6      [.] __libc_start_main_impl (inlined)
+            |
+            ---__libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               color_quant
+               node_insert
+
+   100.00%     0.00%  color_quant  libc.so.6      [.] __libc_start_call_main
+            |
+            ---__libc_start_call_main
+               main
+               color_quant
+               node_insert
+
+   100.00%     0.00%  color_quant  color_quant    [.] main
+            |
+            ---main
+               color_quant
+               node_insert
+
+   100.00%     0.00%  color_quant  color_quant    [.] color_quant
+            |
+            ---color_quant
+               node_insert
+
+
+
+# Samples: 3K of event 'cpu_core/cycles/P'
+# Event count (approx.): 2940747617
+#
+# Children      Self  Command      Shared Object         Symbol                          
+# ........  ........  ...........  ....................  ................................
+#
+    96.71%     0.00%  color_quant  color_quant           [.] _start
+            |
+            ---_start
+               __libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               |          
+               |--92.07%--color_quant
+               |          |          
+               |          |--45.77%--node_insert
+               |          |          
+               |          |--31.39%--heap_add
+               |          |          |          
+               |          |          |--14.24%--down_heap
+               |          |          |          |          
+               |          |          |           --7.05%--cmp_node
+               |          |          |          
+               |          |           --13.44%--up_heap
+               |          |                     |          
+               |          |                      --6.30%--cmp_node
+               |          |          
+               |           --8.35%--color_replace
+               |          
+               |--2.37%--read_ppm
+               |          |          
+               |           --2.36%--_IO_fread
+               |                     _IO_file_xsgetn
+               |                     __libc_read (inlined)
+               |                     __syscall_cancel
+               |                     __internal_syscall_cancel (inlined)
+               |                     0xffffffffb680012b
+               |                     0xffffffffb7f10b75
+               |                     0xffffffffb6b47bf1
+               |                     0xffffffffb70e3559
+               |                     0xffffffffb70e34b1
+               |                     0xffffffffb70e2590
+               |                     0xffffffffb71fcd78
+               |                     0xffffffffb6f830e6
+               |                     0xffffffffb6f82d2e
+               |                     0xffffffffb74d554a
+               |                     |          
+               |                     |--1.34%--0xffffffffb74d4151
+               |                     |          |          
+               |                     |           --1.16%--0xffffffffb6800bb7
+               |                     |                     0xffffffffb7f192f3
+               |                     |                     |          
+               |                     |                      --0.98%--0xffffffffb6c161cb
+               |                     |                                0xffffffffb6ffcb47
+               |                     |                                |          
+               |                     |                                 --0.89%--0xffffffffb6ffc7c3
+               |                     |                                           0xffffffffb6ffc2fb
+               |                     |          
+               |                      --0.90%--0xffffffffb6800b90
+               |          
+                --1.66%--write_ppm
+                          _IO_fwrite
+                          _IO_new_file_xsputn (inlined)
+                          _IO_new_file_xsputn (inlined)
+                          new_do_write (inlined)
+                          _IO_new_file_write (inlined)
+                          __libc_write (inlined)
+                          __syscall_cancel
+                          __internal_syscall_cancel (inlined)
+                          0xffffffffb680012b
+                          0xffffffffb7f10b75
+                          0xffffffffb6b45e2f
+                          0xffffffffb70e36d9
+                          0xffffffffb70e3631
+                          0xffffffffb70e303b
+                          0xffffffffb6fb560d
+                          |          
+                          |--0.91%--0xffffffffb6f80f3b
+                          |          0xffffffffb6fbd11d
+                          |          0xffffffffb6fbbfe9
+                          |          
+                           --0.69%--0xffffffffb6f80e77
+                                     0xffffffffb74d94c3
+
+    96.71%     0.00%  color_quant  libc.so.6             [.] __libc_start_main_impl (inlined)
+            |
+            ---__libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               |          
+               |--92.07%--color_quant
+               |          |          
+               |          |--45.77%--node_insert
+               |          |          
+               |          |--31.39%--heap_add
+               |          |          |          
+               |          |          |--14.24%--down_heap
+               |          |          |          |          
+               |          |          |           --7.05%--cmp_node
+               |          |          |          
+               |          |           --13.44%--up_heap
+               |          |                     |          
+               |          |                      --6.30%--cmp_node
+               |          |          
+               |           --8.35%--color_replace
+               |          
+               |--2.37%--read_ppm
+               |          |          
+               |           --2.36%--_IO_fread
+               |                     _IO_file_xsgetn
+               |                     __libc_read (inlined)
+               |                     __syscall_cancel
+               |                     __internal_syscall_cancel (inlined)
+               |                     0xffffffffb680012b
+               |                     0xffffffffb7f10b75
+               |                     0xffffffffb6b47bf1
+               |                     0xffffffffb70e3559
+               |                     0xffffffffb70e34b1
+               |                     0xffffffffb70e2590
+               |                     0xffffffffb71fcd78
+               |                     0xffffffffb6f830e6
+               |                     0xffffffffb6f82d2e
+               |                     0xffffffffb74d554a
+               |                     |          
+               |                     |--1.34%--0xffffffffb74d4151
+               |                     |          |          
+               |                     |           --1.16%--0xffffffffb6800bb7
+               |                     |                     0xffffffffb7f192f3
+               |                     |                     |          
+               |                     |                      --0.98%--0xffffffffb6c161cb
+               |                     |                                0xffffffffb6ffcb47
+               |                     |                                |          
+               |                     |                                 --0.89%--0xffffffffb6ffc7c3
+               |                     |                                           0xffffffffb6ffc2fb
+               |                     |          
+               |                      --0.90%--0xffffffffb6800b90
+               |          
+                --1.66%--write_ppm
+                          _IO_fwrite
+                          _IO_new_file_xsputn (inlined)
+                          _IO_new_file_xsputn (inlined)
+                          new_do_write (inlined)
+                          _IO_new_file_write (inlined)
+                          __libc_write (inlined)
+                          __syscall_cancel
+                          __internal_syscall_cancel (inlined)
+                          0xffffffffb680012b
+                          0xffffffffb7f10b75
+                          0xffffffffb6b45e2f
+                          0xffffffffb70e36d9
+                          0xffffffffb70e3631
+                          0xffffffffb70e303b
+                          0xffffffffb6fb560d
+                          |          
+                          |--0.91%--0xffffffffb6f80f3b
+                          |          0xffffffffb6fbd11d
+                          |          0xffffffffb6fbbfe9
+                          |          
+                           --0.69%--0xffffffffb6f80e77
+                                     0xffffffffb74d94c3
+
+    96.71%     0.00%  color_quant  libc.so.6             [.] __libc_start_call_main
+            |
+            ---__libc_start_call_main
+               main
+               |          
+               |--92.07%--color_quant
+               |          |          
+               |          |--45.77%--node_insert
+               |          |          
+               |          |--31.39%--heap_add
+               |          |          |          
+               |          |          |--14.24%--down_heap
+               |          |          |          |          
+               |          |          |           --7.05%--cmp_node
+               |          |          |          
+               |          |           --13.44%--up_heap
+               |          |                     |          
+               |          |                      --6.30%--cmp_node
+               |          |          
+               |           --8.35%--color_replace
+               |          
+               |--2.37%--read_ppm
+               |          |          
+               |           --2.36%--_IO_fread
+               |                     _IO_file_xsgetn
+               |                     __libc_read (inlined)
+               |                     __syscall_cancel
+               |                     __internal_syscall_cancel (inlined)
+               |                     0xffffffffb680012b
+               |                     0xffffffffb7f10b75
+               |                     0xffffffffb6b47bf1
+               |                     0xffffffffb70e3559
+               |                     0xffffffffb70e34b1
+               |                     0xffffffffb70e2590
+               |                     0xffffffffb71fcd78
+               |                     0xffffffffb6f830e6
+               |                     0xffffffffb6f82d2e
+               |                     0xffffffffb74d554a
+               |                     |          
+               |                     |--1.34%--0xffffffffb74d4151
+               |                     |          |          
+               |                     |           --1.16%--0xffffffffb6800bb7
+               |                     |                     0xffffffffb7f192f3
+               |                     |                     |          
+               |                     |                      --0.98%--0xffffffffb6c161cb
+               |                     |                                0xffffffffb6ffcb47
+               |                     |                                |          
+               |                     |                                 --0.89%--0xffffffffb6ffc7c3
+               |                     |                                           0xffffffffb6ffc2fb
+               |                     |          
+               |                      --0.90%--0xffffffffb6800b90
+               |          
+                --1.66%--write_ppm
+                          _IO_fwrite
+                          _IO_new_file_xsputn (inlined)
+                          _IO_new_file_xsputn (inlined)
+                          new_do_write (inlined)
+                          _IO_new_file_write (inlined)
+                          __libc_write (inlined)
+                          __syscall_cancel
+                          __internal_syscall_cancel (inlined)
+                          0xffffffffb680012b
+                          0xffffffffb7f10b75
+                          0xffffffffb6b45e2f
+                          0xffffffffb70e36d9
+                          0xffffffffb70e3631
+                          0xffffffffb70e303b
+                          0xffffffffb6fb560d
+                          |          
+                          |--0.91%--0xffffffffb6f80f3b
+                          |          0xffffffffb6fbd11d
+                          |          0xffffffffb6fbbfe9
+                          |          
+                           --0.69%--0xffffffffb6f80e77
+                                     0xffffffffb74d94c3
+
+    96.71%     0.00%  color_quant  color_quant           [.] main
+            |
+            ---main
+               |          
+               |--92.07%--color_quant
+               |          |          
+               |          |--45.77%--node_insert
+               |          |          
+               |          |--31.39%--heap_add
+               |          |          |          
+               |          |          |--14.24%--down_heap
+               |          |          |          |          
+               |          |          |           --7.05%--cmp_node
+               |          |          |          
+               |          |           --13.44%--up_heap
+               |          |                     |          
+               |          |                      --6.30%--cmp_node
+               |          |          
+               |           --8.35%--color_replace
+               |          
+               |--2.37%--read_ppm
+               |          |          
+               |           --2.36%--_IO_fread
+               |                     _IO_file_xsgetn
+               |                     __libc_read (inlined)
+               |                     __syscall_cancel
+               |                     __internal_syscall_cancel (inlined)
+               |                     0xffffffffb680012b
+               |                     0xffffffffb7f10b75
+               |                     0xffffffffb6b47bf1
+               |                     0xffffffffb70e3559
+               |                     0xffffffffb70e34b1
+               |                     0xffffffffb70e2590
+               |                     0xffffffffb71fcd78
+               |                     0xffffffffb6f830e6
+               |                     0xffffffffb6f82d2e
+               |                     0xffffffffb74d554a
+               |                     |          
+               |                     |--1.34%--0xffffffffb74d4151
+               |                     |          |          
+               |                     |           --1.16%--0xffffffffb6800bb7
+               |                     |                     0xffffffffb7f192f3
+               |                     |                     |          
+               |                     |                      --0.98%--0xffffffffb6c161cb
+               |                     |                                0xffffffffb6ffcb47
+               |                     |                                |          
+               |                     |                                 --0.89%--0xffffffffb6ffc7c3
+               |                     |                                           0xffffffffb6ffc2fb
+               |                     |          
+               |                      --0.90%--0xffffffffb6800b90
+               |          
+                --1.66%--write_ppm
+                          _IO_fwrite
+                          _IO_new_file_xsputn (inlined)
+                          _IO_new_file_xsputn (inlined)
+                          new_do_write (inlined)
+                          _IO_new_file_write (inlined)
+                          __libc_write (inlined)
+                          __syscall_cancel
+                          __internal_syscall_cancel (inlined)
+                          0xffffffffb680012b
+                          0xffffffffb7f10b75
+                          0xffffffffb6b45e2f
+                          0xffffffffb70e36d9
+                          0xffffffffb70e3631
+                          0xffffffffb70e303b
+                          0xffffffffb6fb560d
+                          |          
+                          |--0.91%--0xffffffffb6f80f3b
+                          |          0xffffffffb6fbd11d
+                          |          0xffffffffb6fbbfe9
+                          |          
+                           --0.69%--0xffffffffb6f80e77
+                                     0xffffffffb74d94c3
+
+    92.07%     5.98%  color_quant  color_quant           [.] color_quant
+            |          
+            |--86.09%--color_quant
+            |          |          
+            |          |--45.77%--node_insert
+            |          |          
+            |          |--31.39%--heap_add
+            |          |          |          
+            |          |          |--14.24%--down_heap
+            |          |          |          |          
+            |          |          |           --7.05%--cmp_node
+            |          |          |          
+            |          |           --13.44%--up_heap
+            |          |                     |          
+            |          |                      --6.30%--cmp_node
+            |          |          
+            |           --8.35%--color_replace
+            |          
+             --5.98%--_start
+                       __libc_start_main_impl (inlined)
+                       __libc_start_call_main
+                       main
+                       color_quant
+
+    46.54%    46.54%  color_quant  color_quant           [.] node_insert
+            |          
+             --46.13%--_start
+                       __libc_start_main_impl (inlined)
+                       __libc_start_call_main
+                       main
+                       |          
+                        --45.77%--color_quant
+                                  node_insert
+
+    31.84%     4.16%  color_quant  color_quant           [.] heap_add
+            |          
+            |--27.68%--heap_add
+            |          |          
+            |          |--14.24%--down_heap
+            |          |          |          
+            |          |           --7.05%--cmp_node
+            |          |          
+            |           --13.44%--up_heap
+            |                     |          
+            |                      --6.30%--cmp_node
+            |          
+             --3.71%--_start
+                       __libc_start_main_impl (inlined)
+                       __libc_start_call_main
+                       main
+                       color_quant
+                       heap_add
+
+    14.75%     7.70%  color_quant  color_quant           [.] down_heap
+            |          
+            |--7.45%--_start
+            |          __libc_start_main_impl (inlined)
+            |          __libc_start_call_main
+            |          main
+            |          color_quant
+            |          |          
+            |           --7.19%--heap_add
+            |                     down_heap
+            |          
+             --7.30%--down_heap
+                       |          
+                        --7.05%--cmp_node
+
+    14.53%    14.53%  color_quant  color_quant           [.] cmp_node
+            |          
+            |--13.35%--_start
+            |          __libc_start_main_impl (inlined)
+            |          __libc_start_call_main
+            |          main
+            |          color_quant
+            |          heap_add
+            |          |          
+            |          |--7.05%--down_heap
+            |          |          cmp_node
+            |          |          
+            |           --6.30%--up_heap
+            |                     cmp_node
+            |          
+             --1.18%--cmp_node
+
+    14.11%     7.81%  color_quant  color_quant           [.] up_heap
+            |          
+            |--7.46%--_start
+            |          __libc_start_main_impl (inlined)
+            |          __libc_start_call_main
+            |          main
+            |          color_quant
+            |          |          
+            |           --7.14%--heap_add
+            |                     up_heap
+            |          
+             --6.65%--up_heap
+                       |          
+                        --6.30%--cmp_node
+
+     8.96%     8.96%  color_quant  color_quant           [.] color_replace
+            |          
+            |--8.35%--_start
+            |          __libc_start_main_impl (inlined)
+            |          __libc_start_call_main
+            |          main
+            |          color_quant
+            |          color_replace
+            |          
+             --0.61%--0x3ffffffff
+                       color_replace
+
+     4.30%     0.00%  color_quant  [unknown]             [k] 0xffffffffb680012b
+            |
+            ---0xffffffffb680012b
+               0xffffffffb7f10b75
+               |          
+               |--2.37%--0xffffffffb6b47bf1
+               |          0xffffffffb70e3559
+               |          0xffffffffb70e34b1
+               |          0xffffffffb70e2590
+               |          0xffffffffb71fcd78
+               |          0xffffffffb6f830e6
+               |          |          
+               |           --2.36%--0xffffffffb6f82d2e
+               |                     0xffffffffb74d554a
+               |                     |          
+               |                     |--1.34%--0xffffffffb74d4151
+               |                     |          |          
+               |                     |           --1.16%--0xffffffffb6800bb7
+               |                     |                     0xffffffffb7f192f3
+               |                     |                     |          
+               |                     |                      --0.98%--0xffffffffb6c161cb
+               |                     |                                0xffffffffb6ffcb47
+               |                     |                                |          
+               |                     |                                 --0.89%--0xffffffffb6ffc7c3
+               |                     |                                           0xffffffffb6ffc2fb
+               |                     |          
+               |                      --0.90%--0xffffffffb6800b90
+               |          
+                --1.66%--0xffffffffb6b45e2f
+                          0xffffffffb70e36d9
+                          0xffffffffb70e3631
+                          0xffffffffb70e303b
+                          0xffffffffb6fb560d
+                          |          
+                          |--0.91%--0xffffffffb6f80f3b
+                          |          0xffffffffb6fbd11d
+                          |          0xffffffffb6fbbfe9
+                          |          
+                           --0.69%--0xffffffffb6f80e77
+                                     0xffffffffb74d94c3
+
+     4.30%     0.00%  color_quant  [unknown]             [k] 0xffffffffb7f10b75
+            |
+            ---0xffffffffb7f10b75
+               |          
+               |--2.37%--0xffffffffb6b47bf1
+               |          0xffffffffb70e3559
+               |          0xffffffffb70e34b1
+               |          0xffffffffb70e2590
+               |          0xffffffffb71fcd78
+               |          0xffffffffb6f830e6
+               |          |          
+               |           --2.36%--0xffffffffb6f82d2e
+               |                     0xffffffffb74d554a
+               |                     |          
+               |                     |--1.34%--0xffffffffb74d4151
+               |                     |          |          
+               |                     |           --1.16%--0xffffffffb6800bb7
+               |                     |                     0xffffffffb7f192f3
+               |                     |                     |          
+               |                     |                      --0.98%--0xffffffffb6c161cb
+               |                     |                                0xffffffffb6ffcb47
+               |                     |                                |          
+               |                     |                                 --0.89%--0xffffffffb6ffc7c3
+               |                     |                                           0xffffffffb6ffc2fb
+               |                     |          
+               |                      --0.90%--0xffffffffb6800b90
+               |          
+                --1.66%--0xffffffffb6b45e2f
+                          0xffffffffb70e36d9
+                          0xffffffffb70e3631
+                          0xffffffffb70e303b
+                          0xffffffffb6fb560d
+                          |          
+                          |--0.91%--0xffffffffb6f80f3b
+                          |          0xffffffffb6fbd11d
+                          |          0xffffffffb6fbbfe9
+                          |          
+                           --0.69%--0xffffffffb6f80e77
+                                     0xffffffffb74d94c3
+
+     4.03%     0.00%  color_quant  libc.so.6             [.] __syscall_cancel
+            |
+            ---__syscall_cancel
+               __internal_syscall_cancel (inlined)
+               0xffffffffb680012b
+               0xffffffffb7f10b75
+               |          
+               |--2.37%--0xffffffffb6b47bf1
+               |          0xffffffffb70e3559
+               |          0xffffffffb70e34b1
+               |          0xffffffffb70e2590
+               |          0xffffffffb71fcd78
+               |          0xffffffffb6f830e6
+               |          |          
+               |           --2.36%--0xffffffffb6f82d2e
+               |                     0xffffffffb74d554a
+               |                     |          
+               |                     |--1.34%--0xffffffffb74d4151
+               |                     |          |          
+               |                     |           --1.16%--0xffffffffb6800bb7
+               |                     |                     0xffffffffb7f192f3
+               |                     |                     |          
+               |                     |                      --0.98%--0xffffffffb6c161cb
+               |                     |                                0xffffffffb6ffcb47
+               |                     |                                |          
+               |                     |                                 --0.89%--0xffffffffb6ffc7c3
+               |                     |                                           0xffffffffb6ffc2fb
+               |                     |          
+               |                      --0.90%--0xffffffffb6800b90
+               |          
+                --1.66%--0xffffffffb6b45e2f
+                          0xffffffffb70e36d9
+                          0xffffffffb70e3631
+                          0xffffffffb70e303b
+                          0xffffffffb6fb560d
+                          |          
+                          |--0.91%--0xffffffffb6f80f3b
+                          |          0xffffffffb6fbd11d
+                          |          0xffffffffb6fbbfe9
+                          |          
+                           --0.69%--0xffffffffb6f80e77
+                                     0xffffffffb74d94c3
+
+     4.03%     0.00%  color_quant  libc.so.6             [.] __internal_syscall_cancel (inlined)
+            |
+            ---__internal_syscall_cancel (inlined)
+               0xffffffffb680012b
+               0xffffffffb7f10b75
+               |          
+               |--2.37%--0xffffffffb6b47bf1
+               |          0xffffffffb70e3559
+               |          0xffffffffb70e34b1
+               |          0xffffffffb70e2590
+               |          0xffffffffb71fcd78
+               |          0xffffffffb6f830e6
+               |          |          
+               |           --2.36%--0xffffffffb6f82d2e
+               |                     0xffffffffb74d554a
+               |                     |          
+               |                     |--1.34%--0xffffffffb74d4151
+               |                     |          |          
+               |                     |           --1.16%--0xffffffffb6800bb7
+               |                     |                     0xffffffffb7f192f3
+               |                     |                     |          
+               |                     |                      --0.98%--0xffffffffb6c161cb
+               |                     |                                0xffffffffb6ffcb47
+               |                     |                                |          
+               |                     |                                 --0.89%--0xffffffffb6ffc7c3
+               |                     |                                           0xffffffffb6ffc2fb
+               |                     |          
+               |                      --0.90%--0xffffffffb6800b90
+               |          
+                --1.66%--0xffffffffb6b45e2f
+                          0xffffffffb70e36d9
+                          0xffffffffb70e3631
+                          0xffffffffb70e303b
+                          0xffffffffb6fb560d
+                          |          
+                          |--0.91%--0xffffffffb6f80f3b
+                          |          0xffffffffb6fbd11d
+                          |          0xffffffffb6fbbfe9
+                          |          
+                           --0.69%--0xffffffffb6f80e77
+                                     0xffffffffb74d94c3
+
+     2.37%     0.00%  color_quant  color_quant           [.] read_ppm
+            |
+            ---read_ppm
+               |          
+                --2.36%--_IO_fread
+                          _IO_file_xsgetn
+                          __libc_read (inlined)
+                          __syscall_cancel
+                          __internal_syscall_cancel (inlined)
+                          0xffffffffb680012b
+                          0xffffffffb7f10b75
+                          0xffffffffb6b47bf1
+                          0xffffffffb70e3559
+                          0xffffffffb70e34b1
+                          0xffffffffb70e2590
+                          0xffffffffb71fcd78
+                          0xffffffffb6f830e6
+                          0xffffffffb6f82d2e
+                          0xffffffffb74d554a
+                          |          
+                          |--1.34%--0xffffffffb74d4151
+                          |          |          
+                          |           --1.16%--0xffffffffb6800bb7
+                          |                     0xffffffffb7f192f3
+                          |                     |          
+                          |                      --0.98%--0xffffffffb6c161cb
+                          |                                0xffffffffb6ffcb47
+                          |                                |          
+                          |                                 --0.89%--0xffffffffb6ffc7c3
+                          |                                           0xffffffffb6ffc2fb
+                          |          
+                           --0.90%--0xffffffffb6800b90
+
+     2.37%     0.00%  color_quant  libc.so.6             [.] __libc_read (inlined)
+            |
+            ---__libc_read (inlined)
+               __syscall_cancel
+               __internal_syscall_cancel (inlined)
+               0xffffffffb680012b
+               0xffffffffb7f10b75
+               0xffffffffb6b47bf1
+               0xffffffffb70e3559
+               0xffffffffb70e34b1
+               0xffffffffb70e2590
+               0xffffffffb71fcd78
+               0xffffffffb6f830e6
+               |          
+                --2.36%--0xffffffffb6f82d2e
+                          0xffffffffb74d554a
+                          |          
+                          |--1.34%--0xffffffffb74d4151
+                          |          |          
+                          |           --1.16%--0xffffffffb6800bb7
+                          |                     0xffffffffb7f192f3
+                          |                     |          
+                          |                      --0.98%--0xffffffffb6c161cb
+                          |                                0xffffffffb6ffcb47
+                          |                                |          
+                          |                                 --0.89%--0xffffffffb6ffc7c3
+                          |                                           0xffffffffb6ffc2fb
+                          |          
+                           --0.90%--0xffffffffb6800b90
+
+     2.37%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6b47bf1
+            |
+            ---0xffffffffb6b47bf1
+               0xffffffffb70e3559
+               0xffffffffb70e34b1
+               0xffffffffb70e2590
+               0xffffffffb71fcd78
+               0xffffffffb6f830e6
+               |          
+                --2.36%--0xffffffffb6f82d2e
+                          0xffffffffb74d554a
+                          |          
+                          |--1.34%--0xffffffffb74d4151
+                          |          |          
+                          |           --1.16%--0xffffffffb6800bb7
+                          |                     0xffffffffb7f192f3
+                          |                     |          
+                          |                      --0.98%--0xffffffffb6c161cb
+                          |                                0xffffffffb6ffcb47
+                          |                                |          
+                          |                                 --0.89%--0xffffffffb6ffc7c3
+                          |                                           0xffffffffb6ffc2fb
+                          |          
+                           --0.90%--0xffffffffb6800b90
+
+     2.37%     0.00%  color_quant  [unknown]             [.] 0xffffffffb70e3559
+            |
+            ---0xffffffffb70e3559
+               0xffffffffb70e34b1
+               0xffffffffb70e2590
+               0xffffffffb71fcd78
+               0xffffffffb6f830e6
+               |          
+                --2.36%--0xffffffffb6f82d2e
+                          0xffffffffb74d554a
+                          |          
+                          |--1.34%--0xffffffffb74d4151
+                          |          |          
+                          |           --1.16%--0xffffffffb6800bb7
+                          |                     0xffffffffb7f192f3
+                          |                     |          
+                          |                      --0.98%--0xffffffffb6c161cb
+                          |                                0xffffffffb6ffcb47
+                          |                                |          
+                          |                                 --0.89%--0xffffffffb6ffc7c3
+                          |                                           0xffffffffb6ffc2fb
+                          |          
+                           --0.90%--0xffffffffb6800b90
+
+     2.37%     0.00%  color_quant  [unknown]             [.] 0xffffffffb70e34b1
+            |
+            ---0xffffffffb70e34b1
+               0xffffffffb70e2590
+               0xffffffffb71fcd78
+               0xffffffffb6f830e6
+               |          
+                --2.36%--0xffffffffb6f82d2e
+                          0xffffffffb74d554a
+                          |          
+                          |--1.34%--0xffffffffb74d4151
+                          |          |          
+                          |           --1.16%--0xffffffffb6800bb7
+                          |                     0xffffffffb7f192f3
+                          |                     |          
+                          |                      --0.98%--0xffffffffb6c161cb
+                          |                                0xffffffffb6ffcb47
+                          |                                |          
+                          |                                 --0.89%--0xffffffffb6ffc7c3
+                          |                                           0xffffffffb6ffc2fb
+                          |          
+                           --0.90%--0xffffffffb6800b90
+
+     2.37%     0.00%  color_quant  [unknown]             [.] 0xffffffffb70e2590
+            |
+            ---0xffffffffb70e2590
+               0xffffffffb71fcd78
+               0xffffffffb6f830e6
+               |          
+                --2.36%--0xffffffffb6f82d2e
+                          0xffffffffb74d554a
+                          |          
+                          |--1.34%--0xffffffffb74d4151
+                          |          |          
+                          |           --1.16%--0xffffffffb6800bb7
+                          |                     0xffffffffb7f192f3
+                          |                     |          
+                          |                      --0.98%--0xffffffffb6c161cb
+                          |                                0xffffffffb6ffcb47
+                          |                                |          
+                          |                                 --0.89%--0xffffffffb6ffc7c3
+                          |                                           0xffffffffb6ffc2fb
+                          |          
+                           --0.90%--0xffffffffb6800b90
+
+     2.37%     0.00%  color_quant  [unknown]             [.] 0xffffffffb71fcd78
+            |
+            ---0xffffffffb71fcd78
+               0xffffffffb6f830e6
+               |          
+                --2.36%--0xffffffffb6f82d2e
+                          0xffffffffb74d554a
+                          |          
+                          |--1.34%--0xffffffffb74d4151
+                          |          |          
+                          |           --1.16%--0xffffffffb6800bb7
+                          |                     0xffffffffb7f192f3
+                          |                     |          
+                          |                      --0.98%--0xffffffffb6c161cb
+                          |                                0xffffffffb6ffcb47
+                          |                                |          
+                          |                                 --0.89%--0xffffffffb6ffc7c3
+                          |                                           0xffffffffb6ffc2fb
+                          |          
+                           --0.90%--0xffffffffb6800b90
+
+     2.37%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6f830e6
+            |
+            ---0xffffffffb6f830e6
+               |          
+                --2.36%--0xffffffffb6f82d2e
+                          0xffffffffb74d554a
+                          |          
+                          |--1.34%--0xffffffffb74d4151
+                          |          |          
+                          |           --1.16%--0xffffffffb6800bb7
+                          |                     0xffffffffb7f192f3
+                          |                     |          
+                          |                      --0.98%--0xffffffffb6c161cb
+                          |                                0xffffffffb6ffcb47
+                          |                                |          
+                          |                                 --0.89%--0xffffffffb6ffc7c3
+                          |                                           0xffffffffb6ffc2fb
+                          |          
+                           --0.90%--0xffffffffb6800b90
+
+     2.36%     0.00%  color_quant  libc.so.6             [.] _IO_fread
+            |
+            ---_IO_fread
+               _IO_file_xsgetn
+               __libc_read (inlined)
+               __syscall_cancel
+               __internal_syscall_cancel (inlined)
+               0xffffffffb680012b
+               0xffffffffb7f10b75
+               0xffffffffb6b47bf1
+               0xffffffffb70e3559
+               0xffffffffb70e34b1
+               0xffffffffb70e2590
+               0xffffffffb71fcd78
+               0xffffffffb6f830e6
+               0xffffffffb6f82d2e
+               0xffffffffb74d554a
+               |          
+               |--1.34%--0xffffffffb74d4151
+               |          |          
+               |           --1.16%--0xffffffffb6800bb7
+               |                     0xffffffffb7f192f3
+               |                     |          
+               |                      --0.98%--0xffffffffb6c161cb
+               |                                0xffffffffb6ffcb47
+               |                                |          
+               |                                 --0.89%--0xffffffffb6ffc7c3
+               |                                           0xffffffffb6ffc2fb
+               |          
+                --0.90%--0xffffffffb6800b90
+
+     2.36%     0.00%  color_quant  libc.so.6             [.] _IO_file_xsgetn
+            |
+            ---_IO_file_xsgetn
+               __libc_read (inlined)
+               __syscall_cancel
+               __internal_syscall_cancel (inlined)
+               0xffffffffb680012b
+               0xffffffffb7f10b75
+               0xffffffffb6b47bf1
+               0xffffffffb70e3559
+               0xffffffffb70e34b1
+               0xffffffffb70e2590
+               0xffffffffb71fcd78
+               0xffffffffb6f830e6
+               0xffffffffb6f82d2e
+               0xffffffffb74d554a
+               |          
+               |--1.34%--0xffffffffb74d4151
+               |          |          
+               |           --1.16%--0xffffffffb6800bb7
+               |                     0xffffffffb7f192f3
+               |                     |          
+               |                      --0.98%--0xffffffffb6c161cb
+               |                                0xffffffffb6ffcb47
+               |                                |          
+               |                                 --0.89%--0xffffffffb6ffc7c3
+               |                                           0xffffffffb6ffc2fb
+               |          
+                --0.90%--0xffffffffb6800b90
+
+     2.36%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6f82d2e
+            |
+            ---0xffffffffb6f82d2e
+               0xffffffffb74d554a
+               |          
+               |--1.34%--0xffffffffb74d4151
+               |          |          
+               |           --1.16%--0xffffffffb6800bb7
+               |                     0xffffffffb7f192f3
+               |                     |          
+               |                      --0.98%--0xffffffffb6c161cb
+               |                                0xffffffffb6ffcb47
+               |                                |          
+               |                                 --0.89%--0xffffffffb6ffc7c3
+               |                                           0xffffffffb6ffc2fb
+               |          
+                --0.90%--0xffffffffb6800b90
+
+     2.36%     0.00%  color_quant  [unknown]             [.] 0xffffffffb74d554a
+            |
+            ---0xffffffffb74d554a
+               |          
+               |--1.34%--0xffffffffb74d4151
+               |          |          
+               |           --1.16%--0xffffffffb6800bb7
+               |                     0xffffffffb7f192f3
+               |                     |          
+               |                      --0.98%--0xffffffffb6c161cb
+               |                                0xffffffffb6ffcb47
+               |                                |          
+               |                                 --0.89%--0xffffffffb6ffc7c3
+               |                                           0xffffffffb6ffc2fb
+               |          
+                --0.90%--0xffffffffb6800b90
+
+     2.30%     0.95%  color_quant  [unknown]             [.] 0xffffffffb74d4151
+            |          
+            |--1.34%--0xffffffffb74d4151
+            |          |          
+            |           --1.16%--0xffffffffb6800bb7
+            |                     0xffffffffb7f192f3
+            |                     |          
+            |                      --0.98%--0xffffffffb6c161cb
+            |                                0xffffffffb6ffcb47
+            |                                |          
+            |                                 --0.89%--0xffffffffb6ffc7c3
+            |                                           0xffffffffb6ffc2fb
+            |          
+             --0.95%--_start
+                       __libc_start_main_impl (inlined)
+                       __libc_start_call_main
+                       main
+                       read_ppm
+                       _IO_fread
+                       _IO_file_xsgetn
+                       __libc_read (inlined)
+                       __syscall_cancel
+                       __internal_syscall_cancel (inlined)
+                       0xffffffffb680012b
+                       0xffffffffb7f10b75
+                       0xffffffffb6b47bf1
+                       0xffffffffb70e3559
+                       0xffffffffb70e34b1
+                       0xffffffffb70e2590
+                       0xffffffffb71fcd78
+                       0xffffffffb6f830e6
+                       0xffffffffb6f82d2e
+                       0xffffffffb74d554a
+                       |          
+                        --0.90%--0xffffffffb6800b90
+
+     1.66%     0.00%  color_quant  color_quant           [.] write_ppm
+            |
+            ---write_ppm
+               _IO_fwrite
+               _IO_new_file_xsputn (inlined)
+               _IO_new_file_xsputn (inlined)
+               new_do_write (inlined)
+               _IO_new_file_write (inlined)
+               __libc_write (inlined)
+               __syscall_cancel
+               __internal_syscall_cancel (inlined)
+               0xffffffffb680012b
+               0xffffffffb7f10b75
+               0xffffffffb6b45e2f
+               0xffffffffb70e36d9
+               0xffffffffb70e3631
+               0xffffffffb70e303b
+               0xffffffffb6fb560d
+               |          
+               |--0.91%--0xffffffffb6f80f3b
+               |          0xffffffffb6fbd11d
+               |          0xffffffffb6fbbfe9
+               |          
+                --0.69%--0xffffffffb6f80e77
+                          0xffffffffb74d94c3
+
+     1.66%     0.00%  color_quant  libc.so.6             [.] _IO_fwrite
+            |
+            ---_IO_fwrite
+               _IO_new_file_xsputn (inlined)
+               _IO_new_file_xsputn (inlined)
+               new_do_write (inlined)
+               _IO_new_file_write (inlined)
+               __libc_write (inlined)
+               __syscall_cancel
+               __internal_syscall_cancel (inlined)
+               0xffffffffb680012b
+               0xffffffffb7f10b75
+               0xffffffffb6b45e2f
+               0xffffffffb70e36d9
+               0xffffffffb70e3631
+               0xffffffffb70e303b
+               0xffffffffb6fb560d
+               |          
+               |--0.91%--0xffffffffb6f80f3b
+               |          0xffffffffb6fbd11d
+               |          0xffffffffb6fbbfe9
+               |          
+                --0.69%--0xffffffffb6f80e77
+                          0xffffffffb74d94c3
+
+     1.66%     0.00%  color_quant  libc.so.6             [.] _IO_new_file_xsputn (inlined)
+            |
+            ---_IO_new_file_xsputn (inlined)
+               _IO_new_file_xsputn (inlined)
+               new_do_write (inlined)
+               _IO_new_file_write (inlined)
+               __libc_write (inlined)
+               __syscall_cancel
+               __internal_syscall_cancel (inlined)
+               0xffffffffb680012b
+               0xffffffffb7f10b75
+               0xffffffffb6b45e2f
+               0xffffffffb70e36d9
+               0xffffffffb70e3631
+               0xffffffffb70e303b
+               0xffffffffb6fb560d
+               |          
+               |--0.91%--0xffffffffb6f80f3b
+               |          0xffffffffb6fbd11d
+               |          0xffffffffb6fbbfe9
+               |          
+                --0.69%--0xffffffffb6f80e77
+                          0xffffffffb74d94c3
+
+     1.66%     0.00%  color_quant  libc.so.6             [.] new_do_write (inlined)
+            |
+            ---new_do_write (inlined)
+               _IO_new_file_write (inlined)
+               __libc_write (inlined)
+               __syscall_cancel
+               __internal_syscall_cancel (inlined)
+               0xffffffffb680012b
+               0xffffffffb7f10b75
+               0xffffffffb6b45e2f
+               0xffffffffb70e36d9
+               0xffffffffb70e3631
+               0xffffffffb70e303b
+               0xffffffffb6fb560d
+               |          
+               |--0.91%--0xffffffffb6f80f3b
+               |          0xffffffffb6fbd11d
+               |          0xffffffffb6fbbfe9
+               |          
+                --0.69%--0xffffffffb6f80e77
+                          0xffffffffb74d94c3
+
+     1.66%     0.00%  color_quant  libc.so.6             [.] _IO_new_file_write (inlined)
+            |
+            ---_IO_new_file_write (inlined)
+               __libc_write (inlined)
+               __syscall_cancel
+               __internal_syscall_cancel (inlined)
+               0xffffffffb680012b
+               0xffffffffb7f10b75
+               0xffffffffb6b45e2f
+               0xffffffffb70e36d9
+               0xffffffffb70e3631
+               0xffffffffb70e303b
+               0xffffffffb6fb560d
+               |          
+               |--0.91%--0xffffffffb6f80f3b
+               |          0xffffffffb6fbd11d
+               |          0xffffffffb6fbbfe9
+               |          
+                --0.69%--0xffffffffb6f80e77
+                          0xffffffffb74d94c3
+
+     1.66%     0.00%  color_quant  libc.so.6             [.] __libc_write (inlined)
+            |
+            ---__libc_write (inlined)
+               __syscall_cancel
+               __internal_syscall_cancel (inlined)
+               0xffffffffb680012b
+               0xffffffffb7f10b75
+               0xffffffffb6b45e2f
+               0xffffffffb70e36d9
+               0xffffffffb70e3631
+               0xffffffffb70e303b
+               0xffffffffb6fb560d
+               |          
+               |--0.91%--0xffffffffb6f80f3b
+               |          0xffffffffb6fbd11d
+               |          0xffffffffb6fbbfe9
+               |          
+                --0.69%--0xffffffffb6f80e77
+                          0xffffffffb74d94c3
+
+     1.66%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6b45e2f
+            |
+            ---0xffffffffb6b45e2f
+               0xffffffffb70e36d9
+               0xffffffffb70e3631
+               0xffffffffb70e303b
+               0xffffffffb6fb560d
+               |          
+               |--0.91%--0xffffffffb6f80f3b
+               |          0xffffffffb6fbd11d
+               |          0xffffffffb6fbbfe9
+               |          
+                --0.69%--0xffffffffb6f80e77
+                          0xffffffffb74d94c3
+
+     1.66%     0.00%  color_quant  [unknown]             [.] 0xffffffffb70e36d9
+            |
+            ---0xffffffffb70e36d9
+               0xffffffffb70e3631
+               0xffffffffb70e303b
+               0xffffffffb6fb560d
+               |          
+               |--0.91%--0xffffffffb6f80f3b
+               |          0xffffffffb6fbd11d
+               |          0xffffffffb6fbbfe9
+               |          
+                --0.69%--0xffffffffb6f80e77
+                          0xffffffffb74d94c3
+
+     1.66%     0.00%  color_quant  [unknown]             [.] 0xffffffffb70e3631
+            |
+            ---0xffffffffb70e3631
+               0xffffffffb70e303b
+               0xffffffffb6fb560d
+               |          
+               |--0.91%--0xffffffffb6f80f3b
+               |          0xffffffffb6fbd11d
+               |          0xffffffffb6fbbfe9
+               |          
+                --0.69%--0xffffffffb6f80e77
+                          0xffffffffb74d94c3
+
+     1.66%     0.00%  color_quant  [unknown]             [.] 0xffffffffb70e303b
+            |
+            ---0xffffffffb70e303b
+               0xffffffffb6fb560d
+               |          
+               |--0.91%--0xffffffffb6f80f3b
+               |          0xffffffffb6fbd11d
+               |          0xffffffffb6fbbfe9
+               |          
+                --0.69%--0xffffffffb6f80e77
+                          0xffffffffb74d94c3
+
+     1.66%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6fb560d
+            |
+            ---0xffffffffb6fb560d
+               |          
+               |--0.91%--0xffffffffb6f80f3b
+               |          0xffffffffb6fbd11d
+               |          0xffffffffb6fbbfe9
+               |          
+                --0.69%--0xffffffffb6f80e77
+                          0xffffffffb74d94c3
+
+     1.47%     0.00%  color_quant  [unknown]             [.] 0x00000003ffffffff
+            |
+            ---0x3ffffffff
+               |          
+                --0.61%--color_replace
+
+     1.16%     0.00%  color_quant  [unknown]             [k] 0xffffffffb6800bb7
+            |
+            ---0xffffffffb6800bb7
+               0xffffffffb7f192f3
+               |          
+                --0.98%--0xffffffffb6c161cb
+                          0xffffffffb6ffcb47
+                          |          
+                           --0.89%--0xffffffffb6ffc7c3
+                                     0xffffffffb6ffc2fb
+
+     1.16%     0.00%  color_quant  [unknown]             [k] 0xffffffffb7f192f3
+            |
+            ---0xffffffffb7f192f3
+               |          
+                --0.98%--0xffffffffb6c161cb
+                          0xffffffffb6ffcb47
+                          |          
+                           --0.89%--0xffffffffb6ffc7c3
+                                     0xffffffffb6ffc2fb
+
+     0.98%     0.00%  color_quant  [unknown]             [k] 0xffffffffb6c161cb
+            |
+            ---0xffffffffb6c161cb
+               0xffffffffb6ffcb47
+               |          
+                --0.89%--0xffffffffb6ffc7c3
+                          0xffffffffb6ffc2fb
+
+     0.98%     0.00%  color_quant  [unknown]             [k] 0xffffffffb6ffcb47
+            |
+            ---0xffffffffb6ffcb47
+               |          
+                --0.89%--0xffffffffb6ffc7c3
+                          0xffffffffb6ffc2fb
+
+     0.93%     0.03%  color_quant  [unknown]             [.] 0xffffffffb6800b90
+            |          
+             --0.90%--0xffffffffb6800b90
+
+     0.91%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6f80f3b
+            |
+            ---0xffffffffb6f80f3b
+               0xffffffffb6fbd11d
+               0xffffffffb6fbbfe9
+
+     0.91%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6fbd11d
+            |
+            ---0xffffffffb6fbd11d
+               0xffffffffb6fbbfe9
+
+     0.91%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6fbbfe9
+            |
+            ---0xffffffffb6fbbfe9
+
+     0.89%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6ffc7c3
+            |
+            ---0xffffffffb6ffc7c3
+               0xffffffffb6ffc2fb
+
+     0.89%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6ffc2fb
+            |
+            ---0xffffffffb6ffc2fb
+
+     0.69%     0.69%  color_quant  [unknown]             [k] 0xffffffffb74d94c1
+            |
+            ---_start
+               __libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               write_ppm
+               _IO_fwrite
+               _IO_new_file_xsputn (inlined)
+               _IO_new_file_xsputn (inlined)
+               new_do_write (inlined)
+               _IO_new_file_write (inlined)
+               __libc_write (inlined)
+               __syscall_cancel
+               __internal_syscall_cancel (inlined)
+               0xffffffffb680012b
+               0xffffffffb7f10b75
+               0xffffffffb6b45e2f
+               0xffffffffb70e36d9
+               0xffffffffb70e3631
+               0xffffffffb70e303b
+               0xffffffffb6fb560d
+               0xffffffffb6f80e77
+               0xffffffffb74d94c3
+
+     0.69%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6f80e77
+            |
+            ---0xffffffffb6f80e77
+               0xffffffffb74d94c3
+
+     0.69%     0.00%  color_quant  [unknown]             [.] 0xffffffffb74d94c3
+            |
+            ---0xffffffffb74d94c3
+
+     0.68%     0.00%  color_quant  [unknown]             [k] 0xffffffffb7079378
+            |
+            ---0xffffffffb7079378
+               |          
+                --0.61%--0xffffffffb7037917
+
+     0.61%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7037917
+            |
+            ---0xffffffffb7037917
+
+     0.46%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7036262
+     0.46%     0.00%  color_quant  [unknown]             [.] 0xffffffffb703424d
+     0.43%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7032fe2
+     0.42%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6ffaf8a
+     0.38%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6fbaedc
+     0.38%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6fb726f
+     0.38%     0.00%  color_quant  [unknown]             [.] 0xffffffffb707d174
+     0.33%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6ffab72
+     0.33%     0.00%  color_quant  [unknown]             [.] 0xffffffffb707cb1b
+     0.31%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6fbaf95
+     0.25%     0.00%  color_quant  libc.so.6             [.] _int_free_chunk
+     0.25%     0.00%  color_quant  libc.so.6             [.] __munmap
+     0.25%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6b47ea3
+     0.25%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7001d0b
+     0.25%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7027d31
+     0.25%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7025d11
+     0.25%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7025ba5
+     0.25%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7024837
+     0.24%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7032e8e
+     0.22%     0.22%  color_quant  [unknown]             [k] 0xffffffffb6fba169
+     0.22%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6fba16e
+     0.22%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7024194
+     0.22%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6ff4395
+     0.22%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6ff4266
+     0.22%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6ff402a
+     0.22%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6ff385e
+     0.20%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6f97689
+     0.20%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6f97594
+     0.20%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6ffb012
+     0.19%     0.19%  color_quant  [unknown]             [k] 0xffffffffb6801268
+     0.18%     0.18%  color_quant  [unknown]             [k] 0xffffffffb7031b2d
+     0.18%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7031b37
+     0.18%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6c16159
+     0.16%     0.16%  color_quant  [unknown]             [k] 0xffffffffb7032cbd
+     0.16%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7032cc7
+     0.16%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6f9744d
+     0.16%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6ff31f5
+     0.15%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6fea373
+     0.13%     0.13%  color_quant  [unknown]             [k] 0xffffffffb702a9ca
+     0.13%     0.00%  color_quant  [unknown]             [.] 0xffffffffb70364f9
+     0.13%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7030c35
+     0.13%     0.00%  color_quant  [unknown]             [.] 0xffffffffb702a9cc
+     0.12%     0.12%  color_quant  [unknown]             [k] 0xffffffffb7f2b7e3
+     0.12%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7f2b7e7
+     0.12%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6fbb048
+     0.12%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7001c7f
+     0.09%     0.09%  color_quant  [unknown]             [k] 0xffffffffb6ff28ec
+     0.09%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6ff28f0
+     0.09%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6ffabd7
+     0.09%     0.00%  color_quant  [unknown]             [.] 0xffffffffb70057ea
+     0.09%     0.00%  color_quant  [unknown]             [.] 0xffffffffb705adce
+     0.08%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6ffb104
+     0.08%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6f98cdf
+     0.06%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6f96932
+     0.06%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6f96208
+     0.06%     0.06%  color_quant  [unknown]             [k] 0xffffffffb6fb840c
+     0.06%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6f80e9a
+     0.06%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6fb8410
+     0.06%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6ffb0f8
+     0.06%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7013676
+     0.06%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7011350
+     0.06%     0.06%  color_quant  [unknown]             [k] 0xffffffffb6f9689c
+     0.06%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6f968a2
+     0.06%     0.03%  color_quant  [unknown]             [.] 0xffffffffb706282d
+     0.06%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6ff3492
+     0.06%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7005e77
+     0.06%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6f97343
+     0.06%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6f96f88
+     0.05%     0.00%  color_quant  [unknown]             [.] 0xffffffffb74d4153
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb7036511
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7036517
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb6fba091
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6fba095
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb6800b94
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6801570
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb703652e
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7036530
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb7032d32
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7032d6d
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb6f971bd
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6f9747c
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6f971c1
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb6fc3f8e
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb70b8196
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6fc3f93
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb7ee9429
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7ee960e
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb70b4efe
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb70b81a6
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb70b4f43
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb70330ae
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb703305d
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb70b4e93
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb70b54f8
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb70b4e96
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb7001c5f
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7001c66
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb6f96908
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6f9690b
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb6ffb001
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6ffb005
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb6fb9d4b
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6fbb040
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6fb9d4e
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb7ee927f
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7ee9282
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb6feb198
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6ffc409
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb6fba050
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6fba055
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb701031c
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7f2b7d0
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb6fbaf8d
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6fbaf90
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb6c7e8ec
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6fba192
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7062832
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7450954
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb6cff7c5
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6cff7ca
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb70b550b
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6ff2b30
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb70b550d
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb6ffb07e
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6ffb083
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7450940
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb6ffc39c
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6ffc3a0
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb6fc3f9c
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6fba2c4
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6fb4b7f
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb70b54e8
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6fc3fa0
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb7031d06
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb70322a8
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb7450945
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7450946
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb6d3952e
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6d39534
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6800b93
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb706282a
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb7036527
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7036528
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb7010304
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7010307
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb70793a9
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb6f95c83
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6f95c8a
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb6fead90
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6ffafe7
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6fead91
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb7034d6c
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6f97280
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7034d74
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb6ff28f8
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6ff28fd
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb7ee95bf
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7ee9523
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb6f95c35
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb70241ce
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb70061a7
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6f95c3a
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb6ff4ad5
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6ff4ad7
+     0.03%     0.03%  color_quant  [unknown]             [k] 0xffffffffb6d39540
+     0.03%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6d39541
+     0.02%     0.02%  color_quant  [unknown]             [k] 0xffffffffb6ffc4c5
+     0.02%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6ffc581
+     0.02%     0.02%  color_quant  [unknown]             [k] 0xffffffffb6fc1a5c
+     0.02%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6fc1a5e
+     0.02%     0.00%  color_quant  ld-linux-x86-64.so.2  [.] _start
+     0.02%     0.00%  color_quant  ld-linux-x86-64.so.2  [.] _dl_start
+     0.02%     0.00%  color_quant  ld-linux-x86-64.so.2  [.] _dl_start_final (inlined)
+     0.02%     0.00%  color_quant  ld-linux-x86-64.so.2  [.] _dl_sysdep_start
+     0.02%     0.02%  color_quant  [unknown]             [k] 0xffffffffb6f97456
+     0.02%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6f9745a
+     0.02%     0.02%  color_quant  [unknown]             [k] 0xffffffffb6d39525
+     0.02%     0.00%  color_quant  [unknown]             [.] 0xffffffffb70102b2
+     0.02%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6d3952d
+     0.01%     0.00%  color_quant  [unknown]             [k] 0xffffffffb6fc0bc9
+     0.01%     0.00%  color_quant  [unknown]             [k] 0xffffffffb7003538
+     0.01%     0.00%  color_quant  [unknown]             [k] 0xffffffffb70270d2
+     0.01%     0.01%  color_quant  [unknown]             [k] 0xffffffffb7f07b28
+     0.01%     0.00%  color_quant  libc.so.6             [.] _IO_default_uflow
+     0.01%     0.00%  color_quant  libc.so.6             [.] _IO_new_file_underflow (inlined)
+     0.01%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6f82c32
+     0.01%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6f826d2
+     0.01%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6f7ef48
+     0.01%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7f07b30
+     0.01%     0.01%  color_quant  [unknown]             [k] 0xffffffffb704befa
+     0.01%     0.00%  color_quant  ld-linux-x86-64.so.2  [.] dl_main
+     0.01%     0.00%  color_quant  ld-linux-x86-64.so.2  [.] init_tls
+     0.01%     0.00%  color_quant  ld-linux-x86-64.so.2  [.] _dl_allocate_tls_storage
+     0.01%     0.00%  color_quant  ld-linux-x86-64.so.2  [.] malloc (inlined)
+     0.01%     0.00%  color_quant  ld-linux-x86-64.so.2  [.] __minimal_malloc
+     0.01%     0.00%  color_quant  ld-linux-x86-64.so.2  [.] __mmap64 (inlined)
+     0.01%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6b47bc4
+     0.01%     0.00%  color_quant  [unknown]             [.] 0xffffffffb6ba83d6
+     0.01%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7002244
+     0.01%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7025737
+     0.01%     0.00%  color_quant  [unknown]             [.] 0xffffffffb70242be
+     0.01%     0.00%  color_quant  [unknown]             [.] 0xffffffffb7eecb9f
+     0.01%     0.00%  color_quant  [unknown]             [.] 0xffffffffb704befe
+     0.01%     0.00%  color_quant  [unknown]             [k] 0xffffffffb6b46863
+     0.01%     0.00%  color_quant  [unknown]             [k] 0xffffffffb70ef8ae
+     0.01%     0.00%  color_quant  [unknown]             [k] 0xffffffffb70ef59b
+     0.01%     0.00%  color_quant  [unknown]             [k] 0xffffffffb70edada
+     0.01%     0.00%  color_quant  [unknown]             [k] 0xffffffffb70ed9b0
+     0.01%     0.00%  color_quant  [unknown]             [k] 0xffffffffb70ed64c
+     0.01%     0.01%  color_quant  ld-linux-x86-64.so.2  [.] intel_check_word.constprop.0
+     0.01%     0.00%  color_quant  ld-linux-x86-64.so.2  [.] dl_platform_init (inlined)
+     0.01%     0.00%  color_quant  ld-linux-x86-64.so.2  [.] init_cpu_features (inlined)
+     0.01%     0.00%  color_quant  ld-linux-x86-64.so.2  [.] dl_init_cacheinfo (inlined)
+     0.01%     0.00%  color_quant  ld-linux-x86-64.so.2  [.] handle_intel (inlined)
+     0.01%     0.00%  color_quant  ld-linux-x86-64.so.2  [.] intel_check_word (inlined)
+     0.00%     0.00%  color_quant  [unknown]             [k] 0xffffffffb6d438a5
+     0.00%     0.00%  color_quant  [unknown]             [k] 0xffffffffb7ed3020
+     0.00%     0.00%  color_quant  [unknown]             [k] 0xffffffffb7197605
+     0.00%     0.00%  color_quant  [unknown]             [k] 0xffffffffb7196a04
+     0.00%     0.00%  color_quant  [unknown]             [k] 0xffffffffb719722a
+     0.00%     0.00%  color_quant  [unknown]             [k] 0xffffffffb7196733
+     0.00%     0.00%  color_quant  [unknown]             [k] 0xffffffffb71967e6
+     0.00%     0.00%  color_quant  [unknown]             [k] 0xffffffffb6fc0ced
+     0.00%     0.00%  color_quant  [unknown]             [k] 0xffffffffb6ffc730
+     0.00%     0.00%  color_quant  [unknown]             [k] 0xffffffffb7025183
+     0.00%     0.00%  color_quant  [unknown]             [k] 0xffffffffb6f6b16b
+     0.00%     0.00%  color_quant  [unknown]             [k] 0xffffffffb6ff7aef
+     0.00%     0.00%  color_quant  [unknown]             [k] 0xffffffffb6f5580d
+     0.00%     0.00%  color_quant  [unknown]             [k] 0xffffffffb7079779
+     0.00%     0.00%  color_quant  [unknown]             [k] 0xffffffffb7ed3904
+     0.00%     0.00%  color_quant  [unknown]             [k] 0xffffffffb7037947
+     0.00%     0.00%  color_quant  [unknown]             [k] 0xffffffffb7ed3678
+     0.00%     0.00%  color_quant  [unknown]             [k] 0xffffffffb6d438ad
+     0.00%     0.00%  color_quant  [unknown]             [k] 0xffffffffb7ed3021
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

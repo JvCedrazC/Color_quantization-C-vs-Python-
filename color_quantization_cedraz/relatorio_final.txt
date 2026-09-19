@@ -1,0 +1,170 @@
+RELATÓRIO FINAL — ANÁLISE SERIAL PARA TODAS AS QUANTIDADES DE CORES
+Data: 21/08/2026
+
+1. CONFIGURAÇÃO
+
+Processador:                 13th Gen Intel(R) Core(TM) i5-13420H
+Núcleos físicos/lógicos:     8 / 12
+Compilador:                  GCC 15.2.0
+Compilação principal:        gcc -O0 -g -fno-omit-frame-pointer -Wall -Wextra
+Compilação Gprof:            gcc -pg -O0 -g -fno-omit-frame-pointer -Wall -Wextra
+Imagem local:                sample_5184×3456.ppm
+Formato e dimensões:         P6, 5184 × 3456
+Tamanho da imagem:           53.747.729 bytes
+Paletas testadas:            4, 8, 16, 32, 64 e 128 cores
+
+SHA-256 de color_quant.c:
+8cdc3da2f3bc1038e06783e3cc4d844a09b2b96eb73770c065098e244056cae3
+
+SHA-256 da imagem de entrada:
+53507816ef144e392c22765a8548ff2c0ca5618e6400b494e863f31072502075
+
+Todas as ferramentas usaram a imagem presente neste projeto. Nenhuma medição
+ou arquivo de outro projeto foi usado nesta rodada.
+
+2. AVISOS DE COMPILAÇÃO
+
+A compilação terminou sem erros e com cinco avisos:
+
+- Linhas 170 e 262: argumentos de calloc em ordem não convencional.
+- Linhas 249, 250 e 251: abs(int) recebe valores int64_t, com possibilidade de
+  truncamento.
+
+Os avisos integrais estão em build/compiler_warnings.txt e
+gprof/compiler_warnings.txt.
+
+3. GNU TIME
+
+Paleta   Wall clock   Usuário   Sistema   CPU   RSS máximo   Tempo interno
+(cores)      (s)         (s)       (s)      (%)     (KiB)          (s)
+4            0,80        0,75      0,04       99     54.236      0,757553446
+8            0,83        0,79      0,03       99     54.236      0,796898767
+16           0,82        0,79      0,03      100     54.364      0,794965573
+32           0,84        0,80      0,03       99     54.236      0,806177789
+64           0,86        0,83      0,03       99     54.492      0,833574879
+128          0,88        0,85      0,03      100     54.492      0,852458227
+
+O tempo interno cresceu aproximadamente 12,53% entre 4 e 128 cores. Cada
+paleta possui uma medição do GNU Time; a comparação estatística principal usa
+as cinco repetições do Perf Stat.
+
+4. PERF STAT — MÉDIA DE CINCO EXECUÇÕES
+
+Paleta   Tempo médio ± desvio (s)     Ciclos         Instruções      IPC
+4        0,796242042 ± 0,005623177    2.995.031.680   11.803.001.214   3,9409
+8        0,829473717 ± 0,006547460    3.123.019.260   12.223.245.805   3,9139
+16       0,841256452 ± 0,005350744    3.165.827.653   12.263.267.161   3,8736
+32       0,838994774 ± 0,007321454    3.168.691.130   12.443.568.056   3,9270
+64       0,868838601 ± 0,003464215    3.284.531.409   12.854.542.403   3,9137
+128      0,878461970 ± 0,006215009    3.316.146.949   13.064.326.546   3,9396
+
+Paleta   Branch miss (%)   Cache miss (%)   L1 load misses   LLC load misses
+4              0,0692            66,22          2.468.341           972.831
+8              0,0703            66,14          2.738.053         1.039.472
+16             0,0657            67,06          2.502.532         1.012.769
+32             0,0658            67,99          2.780.660         1.064.666
+64             0,0641            68,02          2.585.594         1.055.407
+128            0,0602            68,88          2.560.566         1.034.948
+
+As instruções cresceram 10,69% entre 4 e 128 cores, enquanto o IPC permaneceu
+entre 3,8736 e 3,9409. A taxa de branch miss ficou abaixo de 0,071% em todas as
+configurações.
+
+5. PERF RECORD/REPORT/ANNOTATE
+
+Paleta   color_quant   node_insert   color_replace   cmp_node
+(cores)  inclusivo %    próprio %      próprio %      próprio %
+4            92,07        46,54            8,96          14,53
+8            92,90        45,89           12,01          13,24
+16           93,22        46,07           12,59          13,87
+32           92,22        45,20           13,80          12,49
+64           93,07        45,17           16,68          12,43
+128          93,12        44,88           18,27          12,01
+
+node_insert é o maior hotspot próprio em todas as paletas. A participação de
+color_replace aumenta com a quantidade de cores. Os símbolos do executável
+foram resolvidos; somente endereços do kernel ficaram restritos por
+kptr_restrict.
+
+6. GPROF
+
+Paleta   Total   node_insert   color_replace   cmp_node   down_heap   up_heap
+(cores)   (s)        (%)            (%)           (%)         (%)        (%)
+4         0,61      52,46           6,56          8,20       11,48       5,74
+8         0,52      38,46          10,58          5,77        7,69      16,35
+16        0,64      51,56          14,84          7,81        7,81       1,56
+32        0,59      49,15          13,56         10,17        8,47       6,78
+64        0,54      38,89          16,67          8,33        6,48       7,41
+128       0,58      32,76          21,55          8,62       12,07      10,34
+
+Os percentuais do Gprof têm granularidade de amostragem de 0,01 s e variam
+mais que Perf e Callgrind. Ainda assim, confirmam node_insert e color_replace
+como hotspots principais. Cada paleta possui perfil completo, gmon, call graph
+textual e visualização DOT/SVG.
+
+7. VALGRIND MEMCHECK
+
+Paleta   Erros   Alocações/liberações   Em uso ao final   Vazamentos
+4          0              8 / 8                0 bytes          0 bytes
+8          0              8 / 8                0 bytes          0 bytes
+16         0              8 / 8                0 bytes          0 bytes
+32         0              8 / 8                0 bytes          0 bytes
+64         0              8 / 8                0 bytes          0 bytes
+128        0              8 / 8                0 bytes          0 bytes
+
+Cada execução alocou 53.995.456 bytes no total. Não foram detectadas
+leituras/escritas inválidas, uso de valores não inicializados ou vazamentos.
+
+8. VALGRIND CALLGRIND
+
+Paleta   Instruções totais   node_insert (%)   color_replace (%)   cmp_node (%)
+4         11.527.208.720          50,67               11,29             13,92
+8         11.963.906.858          48,82               14,53             13,41
+16        12.051.243.214          48,46               15,15             13,32
+32        12.225.985.452          47,77               16,36             13,13
+64        12.662.593.709          46,12               19,24             12,67
+128       12.837.369.738          45,50               20,34             12,50
+
+node_insert manteve 5.840.599.576 instruções inclusivas em todas as paletas.
+color_replace cresceu de 1.301.142.528 para 2.611.382.976 instruções e explica
+a maior parte do crescimento do custo total.
+
+9. STRACE
+
+Paleta   Tempo em syscalls   Chamadas   Erros   read (ms)   write (ms)
+(cores)        (ms)
+4             44,421            50        1      28,716       12,646
+8             32,413            50        1      17,810       12,678
+16            35,284            50        1      22,129       11,588
+32            47,359            50        1      28,259       15,807
+64            36,839            50        1      23,890       10,984
+128           34,185            50        1      18,172       14,401
+
+Todas as paletas fizeram 50 syscalls e tiveram um erro em access, compatível
+com uma sondagem do carregador. O tempo em syscalls representa somente cerca
+de 4–6% do wall clock, reforçando que a execução não é limitada por I/O.
+
+10. CONCLUSÃO
+
+Classificação: CPU-BOUND E SERIAL.
+
+- GNU Time registra 99–100% de CPU, equivalente a um núcleo lógico ocupado.
+- Perf mede aproximadamente 11,8–13,1 bilhões de instruções e IPC próximo de
+  3,9.
+- Perf, Gprof e Callgrind convergem em node_insert, color_replace, cmp_node e
+  manutenção do heap como os custos principais.
+- Memcheck não encontrou erros nem vazamentos em nenhuma paleta.
+- Strace mede somente 32–47 ms de syscalls, muito abaixo do tempo total.
+- O crescimento da paleta aumenta principalmente o trabalho de color_replace;
+  node_insert permanece praticamente fixo para a mesma quantidade de pixels.
+
+11. ARTEFATOS
+
+Time:       time/relatorio_time_todas_as_cores.txt
+Perf:       perf/relatorio_perf_todas_as_cores.txt
+Gprof:      gprof/relatorio_gprof_todas_as_cores.txt
+Valgrind:   valgrind/relatorio_valgrind_todas_as_cores.txt
+Strace:     strace/relatorio_strace_todas_as_cores.txt
+
+Em cada pasta, os arquivos individuais usam os sufixos 4, 8, 16, 32, 64 e
+128. Os relatórios consolidados descrevem a convenção completa de nomes.

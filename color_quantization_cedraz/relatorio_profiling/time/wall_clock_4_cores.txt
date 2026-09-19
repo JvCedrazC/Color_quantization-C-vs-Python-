@@ -1,0 +1,12 @@
+GNU TIME — WALL CLOCK
+
+Paleta:                    4 cores
+Wall clock (elapsed):      0:00.80
+Tempo de usuário:          0.75 s
+Tempo de sistema:          0.04 s
+Utilização de CPU:         99%
+Quantização interna:       0.757553446 s
+RSS máximo:                54.236 KiB
+Status de saída:           0
+
+Fonte: time/time_4_cores.txt

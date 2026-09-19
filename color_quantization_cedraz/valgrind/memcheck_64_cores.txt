@@ -1,0 +1,15 @@
+==11921== Memcheck, a memory error detector
+==11921== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
+==11921== Using Valgrind-3.26.0 and LibVEX; rerun with -h for copyright info
+==11921== Command: build/color_quant sample_5184__3456.ppm 64 /tmp/color-quant-memcheck-all.PUdsE0/quantized_64.ppm
+==11921== Parent PID: 11411
+==11921== 
+==11921== 
+==11921== HEAP SUMMARY:
+==11921==     in use at exit: 0 bytes in 0 blocks
+==11921==   total heap usage: 8 allocs, 8 frees, 53,998,528 bytes allocated
+==11921== 
+==11921== All heap blocks were freed -- no leaks are possible
+==11921== 
+==11921== For lists of detected and suppressed errors, rerun with: -s
+==11921== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

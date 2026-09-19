@@ -1,0 +1,11 @@
+==12716== Callgrind, a call-graph generating cache profiler
+==12716== Copyright (C) 2002-2017, and GNU GPL'd, by Josef Weidendorfer et al.
+==12716== Using Valgrind-3.26.0 and LibVEX; rerun with -h for copyright info
+==12716== Command: build/color_quant sample_5184__3456.ppm 64 /tmp/color-quant-callgrind-all.jPPflG/quantized_64.ppm
+==12716== 
+==12716== For interactive control, run 'callgrind_control -h'.
+==12716== 
+==12716== Events    : Ir
+==12716== Collected : 12662593709
+==12716== 
+==12716== I   refs:      12,662,593,709

@@ -1,0 +1,43 @@
+RELATÓRIO VALGRIND — TODAS AS QUANTIDADES DE CORES
+Data: 21/08/2026
+Ferramentas: Memcheck e Callgrind (Valgrind 3.26.0)
+
+1. MEMCHECK
+
+Paleta   Erros   Blocos em uso ao final   Vazamentos
+(cores)
+4          0               0                  0 bytes
+8          0               0                  0 bytes
+16         0               0                  0 bytes
+32         0               0                  0 bytes
+64         0               0                  0 bytes
+128        0               0                  0 bytes
+
+Todas as execuções registraram 8 alocações, 8 liberações e 53.995.456
+bytes alocados. Não houve leitura/escrita inválida, uso de valor não
+inicializado ou vazamento.
+
+2. CALLGRIND
+
+Paleta   Instruções totais   node_insert (%)   color_replace (%)   cmp_node (%)
+4         11.527.208.720          50,67               11,29             13,92
+8         11.963.906.858          48,82               14,53             13,41
+16        12.051.243.214          48,46               15,15             13,32
+32        12.225.985.452          47,77               16,36             13,13
+64        12.662.593.709          46,12               19,24             12,67
+128       12.837.369.738          45,50               20,34             12,50
+
+node_insert executou 5.840.599.576 instruções inclusivas em cada paleta. O
+custo de color_replace cresceu de 1.301.142.528 para 2.611.382.976 instruções,
+explicando a maior parte do crescimento total entre 4 e 128 cores.
+
+3. ARTEFATOS POR PALETA
+
+memcheck_<paleta>_cores.txt
+memcheck_program_time_<paleta>.txt
+callgrind_<paleta>_cores.out
+callgrind_log_<paleta>_cores.txt
+callgrind_report_<paleta>_cores.txt
+callgrind_program_time_<paleta>.txt
+
+Os arquivos existem para as paletas 4, 8, 16, 32, 64 e 128.

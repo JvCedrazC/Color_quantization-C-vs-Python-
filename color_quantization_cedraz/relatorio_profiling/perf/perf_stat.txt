@@ -1,0 +1,24 @@
+# started on Thu Aug 20 16:57:52 2026
+
+
+ Performance counter stats for './color_quant sample_5184×3456.ppm 16 quantized_16.ppm' (5 runs):
+
+            834.28 msec task-clock                                                              ( +-  0.26% )
+        1620518028      cpu_atom/cycles/                                                        ( +-  9.64% )  (0.40%)
+        3134765095      cpu_core/cycles/                                                        ( +-  0.43% )  (99.60%)
+        2390836001      cpu_atom/instructions/                                                  ( +- 29.45% )  (0.40%)
+       12278310265      cpu_core/instructions/                                                  ( +-  0.33% )  (99.60%)
+         344818492      cpu_atom/branches/                                                      ( +- 23.14% )  (0.40%)
+        1439858268      cpu_core/branches/                                                      ( +-  0.30% )  (99.60%)
+           2288905      cpu_atom/branch-misses/                                                 ( +- 26.91% )  (0.40%)
+            991851      cpu_core/branch-misses/                                                 ( +-  2.62% )  (99.60%)
+          42047156      cpu_atom/cache-references/                                              ( +- 25.46% )  (0.40%)
+           6807339      cpu_core/cache-references/                                              ( +-  2.88% )  (99.60%)
+          31803868      cpu_atom/cache-misses/                                                  ( +- 31.27% )  (0.40%)
+           4178815      cpu_core/cache-misses/                                                  ( +-  4.52% )  (99.60%)
+                64      context-switches                                                        ( +-  9.05% )
+                 6      cpu-migrations                                                          ( +- 43.46% )
+             13231      page-faults                                                             ( +-  0.00% )
+
+       0.852661440 +- 0.005739480 seconds time elapsed  ( +-  0.67% )
+

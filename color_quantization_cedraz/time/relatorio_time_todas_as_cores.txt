@@ -1,0 +1,73 @@
+RELATÓRIO GNU TIME — TODAS AS QUANTIDADES DE CORES
+Data da execução: 21/08/2026
+Executável: time/color_quant
+Imagem: sample_5184×3456.ppm
+SHA-256: 53507816ef144e392c22765a8548ff2c0ca5618e6400b494e863f31072502075
+Paletas testadas: 4, 8, 16, 32, 64 e 128 cores
+
+1. RESULTADOS
+
+Paleta   Wall clock   Usuário   Sistema   CPU   Tempo interno
+(cores)      (s)         (s)       (s)      (%)       (s)
+4            0,80        0,75      0,04       99    0,757553446
+8            0,83        0,79      0,03       99    0,796898767
+16           0,82        0,79      0,03      100    0,794965573
+32           0,84        0,80      0,03       99    0,806177789
+64           0,86        0,83      0,03       99    0,833574879
+128          0,88        0,85      0,03      100    0,852458227
+
+2. MEMÓRIA E PAGE FAULTS
+
+Paleta   RSS máximo   Page faults   Page faults
+(cores)     (KiB)        maiores       menores
+4           54.236           0          13.248
+8           54.236           0          13.246
+16          54.364           0          13.247
+32          54.236           0          13.246
+64          54.492           0          13.247
+128         54.492           0          13.247
+
+3. TROCAS DE CONTEXTO
+
+Paleta   Voluntárias   Involuntárias
+(cores)
+4                0               6
+8                1              27
+16               1               5
+32               1               5
+64               1               2
+128              1               2
+
+4. CAMPOS COMUNS
+
+Todas as seis execuções terminaram com status 0, sem swaps, mensagens de
+socket ou sinais entregues. A página do sistema tem 4.096 bytes. Os campos de
+tamanho médio compartilhado, dados não compartilhados, pilha, tamanho total e
+RSS médio foram registrados como zero pelo GNU Time.
+
+Todas as execuções registraram zero blocos de entrada, pois a imagem já estava
+no cache de página. As saídas foram gravadas em /tmp durante a medição; por
+isso o GNU Time também registrou zero blocos de saída.
+
+5. ANÁLISE
+
+O wall clock cresceu de 0,80 s com 4 cores para 0,88 s com 128 cores. O tempo
+interno da quantização cresceu de 0,757553446 s para 0,852458227 s, diferença
+de 0,094904781 s (aproximadamente 12,53%). O uso de CPU entre 99% e 100%
+confirma execução essencialmente limitada a um núcleo lógico.
+
+Cada paleta foi medida uma vez. Os valores servem para comparar esta rodada,
+mas uma conclusão estatística exigiria várias repetições por configuração.
+
+6. ARQUIVOS INDIVIDUAIS
+
+4 cores:   time/time_4_cores.txt e time/program_time_4.txt
+8 cores:   time/time_8_cores.txt e time/program_time_8.txt
+16 cores:  time/time_16_cores.txt e time/program_time_16.txt
+32 cores:  time/time_32_cores.txt e time/program_time_32.txt
+64 cores:  time/time_64_cores.txt e time/program_time_64.txt
+128 cores: time/time_128_cores.txt e time/program_time_128.txt
+
+Os arquivos time_<paleta>_cores.txt contêm a saída integral de /usr/bin/time
+-v. Os arquivos program_time_<paleta>.txt contêm o tempo interno medido pelo
+próprio programa com CLOCK_MONOTONIC.

@@ -1,0 +1,181 @@
+RELATÓRIO SANTOS — CONSOLIDAÇÃO DOS ARTEFATOS EXISTENTES
+Origem: /home/joao/Downloads/color_quantization-santos
+Data dos relatórios de origem: 19/08/2026
+
+1. ESCOPO E RASTREABILIDADE
+
+Este relatório foi produzido exclusivamente a partir dos arquivos TXT, dados
+Callgrind e scripts existentes na pasta informada. Nenhum benchmark dessa pasta
+foi reexecutado.
+
+O SHA-256 do color_quant.c da pasta Santos é:
+8cdc3da2f3bc1038e06783e3cc4d844a09b2b96eb73770c065098e244056cae3
+
+Esse hash é idêntico ao color_quant.c do projeto atual.
+
+Configuração registrada pelos scripts:us
+
+- Compilação comum: gcc -O0 -g.
+- Compilação Gprof: gcc -pg -O0 -g.
+- Quantidades de cores da paleta: 4, 8, 16, 32, 64 e 128.
+- Entrada registrada: sample_5184×3456.ppm.
+- Ferramentas: GNU Time, Gprof, Perf Stat, Callgrind e Strace resumido.
+
+O termo "cores" nos nomes como time_16_cores.txt representa cores da paleta,
+não núcleos do processador.
+
+Limitações dos artefatos:
+
+- A imagem de entrada e as imagens PPM de saída não estão presentes atualmente
+  em /home/joao/Downloads; conteúdo e hash dessas imagens não podem ser
+  confirmados.
+- Processador, quantidade de núcleos e versão do compilador não foram gravados.
+- Não existem resultados de Memcheck.
+- Não existem perf.data, Perf Report, Perf Annotate ou hotspots amostrados.
+- O Strace disponível contém apenas resumos; não há rastreamento detalhado.
+- Cada configuração possui uma única medição de Time e Perf, sem média ou
+  desvio-padrão.
+
+2. GNU TIME
+
+Paleta   Wall clock   Usuário   Sistema   CPU    RSS máx.   Page faults
+(cores)      (s)         (s)       (s)     (%)     (KiB)     maiores/menores
+4            3,00        2,85      0,09     98     132.128       1 / 36.887
+8            3,08        2,95      0,10     99     132.384       0 / 36.888
+16           3,21        3,07      0,09     98     132.128       0 / 36.887
+32           3,43        3,27      0,11     98     132.000       0 / 36.888
+64           3,51        3,23      0,10     95     132.000       1 / 36.889
+128          3,38        3,24      0,06     97     132.000       0 / 36.888
+
+O menor wall clock foi 3,00 s com 4 cores e o maior foi 3,51 s com 64
+cores. O uso de CPU entre 95% e 99% mostra ocupação próxima de um núcleo lógico.
+Os valores de entrada do sistema de arquivos variam muito entre execuções,
+indicando efeito de cache de página; por isso, diferenças pequenas de wall
+clock não devem ser tratadas como tendência precisa.
+
+3. PERF STAT — CONTADORES CPU_CORE
+
+Paleta   Tempo      Ciclos          Instruções       IPC      Cache miss   Branch miss
+(cores)    (s)                                                      (%)           (%)
+4        2,2634    9.471.256.532    12.279.283.687   1,2965      26,9858        5,5466
+8        2,3515    9.830.689.208    12.561.399.872   1,2778      28,8883        5,5201
+16       2,4177    9.949.475.404    12.935.214.635   1,3001      27,8401        5,5750
+32       2,5734   10.561.862.490    13.273.152.956   1,2567      30,5020        5,6292
+64       3,1429   10.885.071.766    13.702.101.664   1,2588      32,1237        5,7214
+128      2,7164   10.641.990.876    14.034.087.523   1,3188      29,2729        5,8273
+
+Contadores adicionais cpu_core:
+
+Paleta   L1-dcache-load-misses   LLC-load-misses
+4                 102.030.921          13.193.514
+8                 102.545.950          14.075.180
+16                102.607.758          13.727.999
+32                102.650.187          15.012.651
+64                103.722.194          15.773.253
+128               102.781.729          14.292.233
+
+O evento L1-dcache-load-misses não era suportado pelo PMU cpu_atom. Os TXT
+mantêm o marcador <not supported>; nenhum valor foi atribuído a esse evento.
+Os contadores cpu_atom tinham cobertura entre 0,12% e 1,42% e não foram usados
+como série principal.
+
+As instruções cpu_core crescem de 12,279 bilhões para 14,034 bilhões entre 4 e
+128 cores. O IPC permanece entre 1,2567 e 1,3188. A execução de 64 cores tem
+tempo de sistema registrado em 0,461176 s, muito acima das demais, explicando
+parte do pico de 3,1429 s no Perf.
+
+4. GPROF — TEMPO PRÓPRIO
+
+Paleta   Total     node_insert   cmp_node   color_replace   down_heap   up_heap
+(cores) amostrado      (%)          (%)          (%)            (%)        (%)
+4         1,70 s      62,35        18,82         4,12           4,71       3,53
+8         2,37 s      54,01        25,74         5,91           5,49       2,74
+16        2,14 s      54,21        25,93         3,74           5,84       2,34
+32        2,28 s      59,65        22,37         5,26           3,07       3,95
+64        2,30 s      58,70        20,87         7,39           5,22       2,61
+128       2,52 s      52,78        21,43        12,30           3,97       2,78
+
+node_insert é o maior hotspot em todas as configurações, entre 52,78% e
+62,35% do tempo próprio. cmp_node ocupa a segunda posição, entre 18,82% e
+25,93%. color_replace cresce em participação conforme aumenta a paleta,
+atingindo 12,30% com 128 cores.
+
+O call graph textual está incorporado em cada gprof_<paleta>_cores.txt. Para a
+paleta de 16 cores, color_quant acumula 97,7% do tempo inclusivo, node_insert
+55,6%, heap_add 34,4%, up_heap 15,3%, down_heap 18,8%, cmp_node 25,9% e
+color_replace 3,7%. Percentuais inclusivos se sobrepõem.
+
+5. CALLGRIND
+
+Paleta   Instruções totais   node_insert   heap_add   color_replace
+(cores)                          (%)          (%)          (%)
+4         12.264.952.221        47,95        26,34        13,86
+8         12.562.255.509        46,81        25,72        15,90
+16        12.891.965.904        45,61        25,06        18,05
+32        13.201.502.919        44,54        24,48        19,97
+64        13.574.879.741        43,32        23,80        22,17
+128       13.898.398.580        42,31        23,25        23,99
+
+Funções auxiliares do heap:
+
+Paleta   down_heap (%)   up_heap (%)   cmp_node (%)
+4             15,08          13,86          12,76
+8             14,72          13,53          12,46
+16            14,34          13,19          12,14
+32            14,01          12,88          11,86
+64            13,62          12,52          11,53
+128           13,30          12,23          11,26
+
+Os custos são inclusivos e se sobrepõem. node_insert executa quantidade fixa
+de trabalho para os 17.915.904 pixels, enquanto o custo de color_replace cresce
+com a paleta. Isso explica o aumento das instruções totais conforme a quantidade
+de cores sobe.
+
+6. STRACE RESUMIDO
+
+Paleta   Syscalls   Tempo total   read       write      munmap    Erros
+(cores)                (ms)        (ms)        (ms)        (ms)
+4          1.207       72,428      44,397      22,453       5,200      1
+8          1.207       49,797      28,513      16,621       4,562      1
+16         1.207       49,915      23,009      21,445       5,138      1
+32         1.207       45,802      29,389      14,513       1,713      1
+64         1.207       43,272      22,448      17,202       3,472      1
+128        1.207       50,314      21,160      22,436       6,471      1
+
+Todas as execuções têm 1.207 chamadas e um erro em access, compatível com uma
+sondagem de arquivo/biblioteca. read e write dominam o tempo de sistema. As
+325 chamadas munmap, 333 mmap e 511 mremap registradas em todas as paletas
+mostram atividade intensa do alocador durante a construção/liberação da octree.
+
+7. SÍNTESE
+
+Os artefatos Santos indicam comportamento predominantemente CPU-bound:
+
+- GNU Time registra 95%–99% de CPU durante execuções de 3,00–3,51 s.
+- Perf registra aproximadamente 12,3–14,0 bilhões de instruções cpu_core.
+- Gprof e Callgrind convergem em node_insert, cmp_node e manutenção do heap.
+- Strace acumula apenas 43–72 ms em chamadas de sistema, muito abaixo do wall
+  clock das execuções.
+- O custo cresce com a quantidade de cores principalmente em color_replace;
+  o trabalho de node_insert permanece fixo para a mesma quantidade de pixels.
+
+Não é possível concluir sobre segurança de memória a partir dessa pasta, pois
+ela não contém relatório Memcheck. Também não é possível validar a imagem ou as
+saídas PPM porque esses arquivos não estão presentes no diretório fornecido.
+
+8. ARQUIVOS DE ORIGEM
+
+GNU Time:
+/home/joao/Downloads/color_quantization-santos/time/relatorios_time/
+
+Perf Stat:
+/home/joao/Downloads/color_quantization-santos/perf/relatorios_perf/
+
+Gprof e call graphs:
+/home/joao/Downloads/color_quantization-santos/gprof/relatorios_gprof/
+
+Callgrind:
+/home/joao/Downloads/color_quantization-santos/valgrind/relatorios_valgrind/callgrind/
+
+Strace:
+/home/joao/Downloads/color_quantization-santos/strace/relatorios_strace/

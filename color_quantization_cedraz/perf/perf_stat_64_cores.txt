@@ -1,0 +1,20 @@
+# started on Fri Aug 21 22:38:33 2026
+
+
+ Performance counter stats for 'build/color_quant sample_5184×3456.ppm 64 /tmp/color-quant-perf-stat-local.sQpEEN/quantized_64.ppm' (5 runs):
+
+            867.85 msec task-clock                                                              ( +-  0.39% )
+                 7      context-switches                                                        ( +- 35.74% )
+                 3      cpu-migrations                                                          ( +- 51.21% )
+             13231      page-faults                                                             ( +-  0.00% )
+        3284531409      cpu_core/cycles/                                                        ( +-  0.40% )  (99.76%)
+       12854542403      cpu_core/instructions/                                                  ( +-  0.08% )  (99.76%)
+        1517420863      cpu_core/branches/                                                      ( +-  0.10% )  (99.76%)
+            972905      cpu_core/branch-misses/                                                 ( +-  1.94% )  (99.76%)
+           5906958      cpu_core/cache-references/                                              ( +-  1.13% )  (99.76%)
+           4017657      cpu_core/cache-misses/                                                  ( +-  0.57% )  (99.76%)
+           2585594      cpu_core/L1-dcache-load-misses/                                         ( +-  1.69% )  (99.76%)
+           1055407      cpu_core/LLC-load-misses/                                               ( +-  0.61% )  (99.76%)
+
+       0.868838601 +- 0.003464215 seconds time elapsed  ( +-  0.40% )
+

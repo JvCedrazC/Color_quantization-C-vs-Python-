@@ -1,0 +1,58 @@
+digraph gprof_call_graph {
+    graph [
+        label="Gprof call graph — sample_5184×3456.ppm, __COLORS__ cores",
+        labelloc=t,
+        rankdir=LR,
+        fontname="Helvetica",
+        fontsize=18,
+        bgcolor="transparent",
+        pad=0.3,
+        nodesep=0.3,
+        ranksep=0.65
+    ];
+    node [
+        shape=box,
+        style="rounded,filled",
+        fillcolor="#f8fafc",
+        color="#334155",
+        fontname="Helvetica",
+        fontsize=10
+    ];
+    edge [color="#64748b", fontname="Helvetica", fontsize=9];
+
+    main [label="main", fillcolor="#dbeafe"];
+    quant [label="color_quant", fillcolor="#fecaca"];
+    insert [label="node_insert"];
+    heap [label="heap_add"];
+    replace [label="color_replace"];
+    up [label="up_heap"];
+    down [label="down_heap"];
+    cmp [label="cmp_node"];
+    pop [label="pop_heap"];
+    fold [label="node_fold"];
+    new [label="node_new"];
+    free_node [label="node_free"];
+    read [label="read_ppm"];
+    number [label="read_num"];
+    image [label="img_new"];
+    write [label="write_ppm"];
+
+    main -> quant;
+    main -> read;
+    main -> write;
+    quant -> insert;
+    quant -> heap;
+    quant -> replace;
+    quant -> pop;
+    quant -> fold;
+    quant -> new;
+    quant -> free_node;
+    insert -> new;
+    heap -> up;
+    heap -> down;
+    pop -> down;
+    up -> cmp;
+    down -> cmp;
+    read -> number;
+    read -> image;
+}
